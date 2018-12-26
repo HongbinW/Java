@@ -29,7 +29,7 @@ import java.util.Scanner;
                 //一定要执行的代码
               }
     注：1.try内声明的变量，类似于局部变量，出了try{}语句，就不能被调用
-        2.finally{}可以没有
+        2.catch{} finally{}可以没有
         3.catch语句内部是对异常对象的处理
             >getMessage();       printStackTrace;       自定义处理
         4.可以有多个catch语句，try中抛出的异常类对象从上往下去匹配catch中的异常类的类型，一旦满足
@@ -37,7 +37,8 @@ import java.util.Scanner;
         5.如果异常处理了，其后代码继续执行
         6.若catch中多个异常类型是“并列”关系，谁上谁下都行
           若catch中是包含关系，则范围小的写上面
-        7.finally中存放的是一定会被执行的代码，即使catch中仍有异常，以及是否有return语句
+        7.finally中存放的是一定会被执行的代码，即使catch中仍有异常或有return语句（见TestFinally）
+          finally一定会运行是指在程序跳出前，一定会运行
         8.try-catch是可以相互嵌套的
     三、对于运行时异常来说，可以不显示地处理，但对于编译时异常来说，必须显示地处理
 
