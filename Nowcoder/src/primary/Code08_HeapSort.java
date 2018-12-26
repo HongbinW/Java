@@ -27,7 +27,7 @@ public class Code08_HeapSort {
         arr[y] = temp;
     }
     public static void heapipy(int[] arr, int index, int heapsize){ //heapsize指要排的堆的长度，不一定是arr.length
-        int left= index * 2 + 1;
+        int left = index * 2 + 1;
         while (left < heapsize){
             int largest = left + 1 < heapsize && arr[left + 1] > arr[left] ? left + 1 : left;
             largest = arr[largest] > arr[index] ? largest : index;
