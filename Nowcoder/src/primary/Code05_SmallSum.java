@@ -1,5 +1,5 @@
 package primary;
-
+//在一个数组中，每一个数左边比当前小的数累加起来
 import java.util.Arrays;
 
 public class Code05_SmallSum {
@@ -107,8 +107,8 @@ public class Code05_SmallSum {
     // for test
     public static void main(String[] args) {
         int testTime = 500000;
-        int maxSize = 100;
-        int maxValue = 100;
+        int maxSize = 5;
+        int maxValue = 10;
         boolean succeed = true;
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);

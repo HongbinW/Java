@@ -12,7 +12,7 @@ public class Code06_NetherlandsFlag {
                 swap(arr,cur++,++less);
             }
             else if(arr[cur] > num){
-                swap(arr,cur,--more);
+                swap(arr,cur,--more);   //换过来的值不知道大小，所以重新比较
             }
             else {
                 cur++;
