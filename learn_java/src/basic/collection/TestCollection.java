@@ -1,7 +1,5 @@
 package basic.collection;
 
-import com.sun.org.apache.xerces.internal.xs.datatypes.ObjectList;
-import javafx.beans.binding.When;
 import org.junit.Test;
 
 import java.util.*;
@@ -13,8 +11,11 @@ import java.util.*;
     3.集合
         -----Collection接口
                 ----Set：元素无序，不可重复的集合（类似集合）
+                        ----HashSet、LinkedHashSet、TreeSet
                 ----List:元素有序，可重复的集合（“动态”数组）
+                        ----ArrayList（主要的实现类）、LinkedList(链表实现，用于频繁的插入删除操作)、Vector(古老的实现类、线程安全的)
         -----Map接口：具有映射关系“key-value对”的集合（类似函数）
+                        ----HashMap、LinkedHashMap、TreeMap、Hashtable(子类：Properties)
  */
 public class TestCollection {
     @Test
