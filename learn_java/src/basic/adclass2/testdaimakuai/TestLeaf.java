@@ -45,5 +45,7 @@ public class TestLeaf{
     public static void main(String[] args){
         new Leaf();
         //new Leaf();
+        System.out.println();
+        new Leaf();
     }
 }
