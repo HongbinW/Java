@@ -23,7 +23,6 @@ public class TestList {
      *                 插（add(int index, Object ele)) 长度（size())
      */
 
-
     @Test
     public void testList1(){
         List list = new ArrayList();
