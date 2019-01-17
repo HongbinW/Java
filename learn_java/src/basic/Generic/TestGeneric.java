@@ -6,12 +6,82 @@ import java.util.*;
 
 /*
     泛型的使用
-    1.在集合中使用泛型
+    1.在集合中使用泛型(掌握)
     2.自定义泛型类、泛型接口、泛型方法
     3.泛型与继承关系
     4.通配符
+
+    泛型不能使用在static中，因为实例化时才会确定泛型类型，而static静态结构在类加载时就加载了
+    泛型不能在try-catch中使用泛型的声明
  */
 public class TestGeneric {
+    // 7.通配符的使用
+    @Test
+    public void test7(){
+        List<String> list = new ArrayList<String>();
+        list.add("AA");
+        list.add("BB");
+        List<?> list1 = list;
+        //可以读取声明为通配符的集合类的对象
+        Iterator<?> iterator = list1.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+        //不允许向声明为通配符的集合类写入对象，但Null可以
+//        list1.add("CC");
+
+    }
+
+    // 6.通配符 ?
+    // List<A>,List<B>,...,任何都是List<?>的子类
+    // ? extends A :可以存放A及其子类
+    // ? extends B :可以存放B及其父类
+    @Test
+    public void test6(){
+        List<?> list = null;
+        List<Object> list1 = new ArrayList<Object>();
+        List<String> list2 = new ArrayList<String>();
+        list = list1;
+        list = list2;
+        show(list1);
+//        show(list2);  //只能放list1，因为指明了泛型
+//        show(list);
+        show1(list2);
+        List<? extends Number> list3 = null;
+        List<Integer> list4 = null;
+        list3 = list4;
+        List<? super Number> list5 = null;
+        list5 = list1;  //Object >= Number
+
+    }
+    public void show(List<Object> list){
+
+    }
+    public void show1(List<?> list){
+
+    }
+    //5.泛型与继承的关系
+    //若类A是类B的子类，那么List<A>就不是List<B>的子接口
+    @Test
+    public void test5(){
+        Object obj = null;
+        String str = "AA";
+
+        Object[] obj1 = null;
+        String[] str1 = new String[]{"AA","BB","CC"};
+        obj1 = str1;
+        System.out.println(obj1);
+
+        List<Object> list = null;
+        List<String> list1 = new ArrayList<String>();
+//        list = list1;
+        //这样是错误的
+        //假设list = list1满足，即list也指向list1集合
+        //则list.add(123),因为是Object类型的，所以可以添加进去
+        //String str = list1.get(0); 出现问题，String类型获取到了Integer类型
+        //这两个属于并列关系
+
+    }
     //4.使用自定义泛型类
     @Test
     public void test4(){
@@ -56,8 +126,8 @@ public class TestGeneric {
 //        for(String str:set1){
 //            System.out.println(str + "---->" + map.get(str));
 //        }
-        Set<Map.Entry<String,Integer>> set1 = map.entrySet();   //泛型可以相互嵌套
-        for(Map.Entry<String,Integer> o:set1){
+        Set<Map.Entry<String,Integer>> entry1 = map.entrySet();   //泛型可以相互嵌套
+        for(Map.Entry<String,Integer> o:entry1){
             System.out.println(o.getKey() + "---->" + o.getValue());
         }
     }
