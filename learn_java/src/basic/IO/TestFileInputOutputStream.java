@@ -6,10 +6,10 @@ package basic.IO;
     按照角色的不同：节点流（直接处理文件） 处理流（除了节点流）
     2.IO体系
     抽象基类：           节点流（文件流）
-    InputStream          FileInputStream
-    OutputStream         FileOutputStream
-    Reader               FileReader
-    Writer               FileWriter
+    InputStream          FileInputStream(处理字节)
+    OutputStream         FileOutputStream(处理字节)
+    Reader               FileReader(处理字符)
+    Writer               FileWriter(处理字符)
  */
 
 import org.junit.Test;
@@ -70,6 +70,7 @@ public class TestFileInputOutputStream {
             }
         }
     }
+    //按数组读取一定长度的字节
     @Test
     public void TestFileInputSream3(){
         FileInputStream fis = null;
