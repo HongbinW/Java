@@ -26,8 +26,19 @@ public class TestOtherStream {
             File file2 = new File("copydbcp3.txt");
 
             FileOutputStream fos = new FileOutputStream(file2);
-            OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
-            bw = new BufferedWriter(osw);                   //***********question*****不应该是字节流输出么？
+            OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");  //字符输出流
+            bw = new BufferedWriter(osw);
+            /**
+             * ***********question*****不应该是字节流输出么？
+             * 1、字符的输出需要通过字符流来操作，但是本质最后还是通过字节流输出到计算机上进行存储的
+             *
+             * 2、 因此OutputStreamWriter流的作用就是利用字节流作为底层输出流然后构建字符输出流，
+             * 字符输出流输出字符到流中，然后通过指定的字符集把流中的字符编码成字节输出到字节流中，
+             * 其作用就是一个桥梁，使得双方链接起来
+             *
+             * 通常就是将OutputStreamWriter和BufferedWriter连起来用
+             */
+
 
 //            FileWriter fw = new FileWriter(file2);
 //            bw = new BufferedWriter(fw);
