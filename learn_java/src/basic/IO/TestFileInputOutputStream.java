@@ -5,11 +5,11 @@ package basic.IO;
     按照处理数据单位的不同：字节流 字符流（处理的文本文件）
     按照角色的不同：节点流（直接处理文件） 处理流（除了节点流）
     2.IO体系
-    抽象基类：           节点流（文件流）
-    InputStream          FileInputStream(处理字节)
-    OutputStream         FileOutputStream(处理字节)
-    Reader               FileReader(处理字符)
-    Writer               FileWriter(处理字符)
+    抽象基类：           节点流（文件流）                缓冲流(处理流的一种)
+    InputStream          FileInputStream(处理字节)       BufferedInputStream
+    OutputStream         FileOutputStream(处理字节)      BufferedOutputStream
+    Reader               FileReader(处理字符)            BufferedReader
+    Writer               FileWriter(处理字符)            BufferedWriter
  */
 
 import org.junit.Test;
@@ -193,11 +193,12 @@ public class TestFileInputOutputStream {
             }
         }
     }
+
     @Test
     public void testcopy(){
         long start = System.currentTimeMillis();
         copyFile("C:\\Users\\admin\\Desktop\\touxiang.png","C:\\Users\\admin\\Desktop\\touxiang3.png");
         long end = System.currentTimeMillis();
-        System.out.println("花费的时间为" + (end - start));
+        System.out.println("花费的时间为" + (end - start));   //1885
     }
 }

@@ -31,7 +31,9 @@ public class FileReaderWriter {
         }
     }
     //使用FileReader FileWriter 可以实现文本文件的复制
-    //对于非文本文件，只能使用字节流
+    //对于非文本文件（视频文件、音频文件、图片），只能使用字节流！
+    //字节流可以来处理字符流（要求每次读取偶数倍的长度），而字符流不能来处理字节流
+    // 所以如果一个word文件（已不是单纯的文本文件） ，用字节流
     @Test
     public void testFileReaderWriter(){
         //1.输入流对应的文件src一定要存在，否则抛异常。输出流对应的文件dest可以不存在，执行过程中会自动创建
