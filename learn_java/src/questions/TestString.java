@@ -1,6 +1,7 @@
 package questions;
 
 public class TestString {
+    //对比changyonglei.TestString
     public static void main(String[] args){
         String s1 = "hello";                          //s1得到的是字符串常量池中"hello"的地址
         String s2 = new String("hello");    //s2得到的是堆中对应的地址，而堆中对应位置指向字符串常量池中"hello"
