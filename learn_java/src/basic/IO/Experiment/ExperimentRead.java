@@ -6,7 +6,7 @@ public class ExperimentRead {
     public static void main(String[] args) {
         BufferedReader br = null;
         try {
-            File file = new File("test.txt");
+            File file = new File("basicdata.txt");
 //            FileInputStream fis = new FileInputStream(file);
 //            InputStreamReader isr = new InputStreamReader(fis);
             FileReader fr = new FileReader(file);

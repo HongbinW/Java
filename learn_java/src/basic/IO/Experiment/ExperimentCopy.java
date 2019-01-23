@@ -7,7 +7,7 @@ public class ExperimentCopy {
         BufferedReader br = null;
         BufferedWriter bw = null;
         try {
-            File src = new File("test.txt");
+            File src = new File("basicdata.txt");
             File desc = new File("test1.txt");
             FileInputStream fis = new FileInputStream(src);
             InputStreamReader isr = new InputStreamReader(fis);     //可以不用转换直接FileReader和FileWriter
