@@ -11,6 +11,8 @@ public class StringArray {
             System.out.print((char)b[i]);
         }
     }
+    //str.toCharArray()转为字符数组
+
     //From TestFileInputOutputStream
     @Test
     public void test2(){
