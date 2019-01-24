@@ -100,6 +100,46 @@ public class TestString {
         }
 
     }
+
+    //字符串和数组的转化
+    /**
+     * 1.字符串与基本数据类型、包装类之间的转换
+     *  ①字符串 --->基本数据类型、包装类：调用相应的包装类的parseXxx(String str)；
+     *  ②基本数据类型、包装类 ---->字符串：调用字符串重载的valueOf()方法
+     * 2.字符串与字节数组之间的转换
+     *  ①字符串 ----> 字节数组：调用字符串的getBytes()方法
+     *  ②字节数组 ----> 字符串：调用字符串的构造器
+     * 3.字符串与字符数组的转换
+     *  ①字符串 ----> 字符数组：调用字符串的toCharArray()
+     *  ②字符数组 ----> 字符串：调用字符串的构造器
+     */
+    @Test
+    public void test4(){
+        //1.字符串与基本数据类型、包装类之间的转换
+        String str1 = "123";
+        int i = Integer.parseInt(str1);
+        System.out.println(i);
+        String str2 = i + "";   //最简单
+        str2 = String.valueOf(i);
+        System.out.println(str2);
+        //2.字符串与字节数组之间的转换
+        String str3 = "abcd123";
+        byte[] b = str3.getBytes();
+        for (int j = 0; j < b.length ; j++) {
+            System.out.println((char)b[j]);
+        }
+        String str4 = new String(b);
+        System.out.println(str4);
+        //3.字符串与字符数组的转换
+        String str5 = "abc123中国人";  //有汉字得用字符，无汉字用字节也可以
+        char[] c = str5.toCharArray();
+        for (int j = 0; j < c.length; j++) {
+            System.out.println(c[j]);
+        }
+        String str6 = new String(c);
+        System.out.println(str6);
+    }
+
 }
 
 class Person{
