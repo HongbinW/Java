@@ -3,6 +3,7 @@ package basic.collection;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class TestList {
@@ -44,6 +45,7 @@ public class TestList {
     @Test
     public void test2(){
         List list = new ArrayList();
+        LinkedList list2 = new LinkedList();
         list.add(123);
         list.add(456);
         list.add("AA");

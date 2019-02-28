@@ -5,15 +5,17 @@ import org.junit.Test;
 import java.util.*;
 
 /*
-    1.存储对象可以考虑：①数组 ②集合
+    1.存储对象可以考虑：①数组（基本数据类型&引用数据类型） ②集合（引用数据类型）
     2.数组存储对象的特点：Student[] stu = new Student[20]; stu[0] = new Student();……
         >弊端：①一旦创建，其长度不可变。②实际存储量不可直接知
     3.集合
         -----Collection接口
                 ----Set：元素无序，不可重复的集合（类似集合）
                         ----HashSet、LinkedHashSet、TreeSet
+                    添加进Set集合中的元素所在的类，一定要重写equals()和hashCode()。要求两个方法保持一致
                 ----List:元素有序，可重复的集合（“动态”数组）
                         ----ArrayList（主要的实现类）、LinkedList(链表实现，用于频繁的插入删除操作)、Vector(古老的实现类、线程安全的)
+                    添加进List集合中的元素（或对象）一定要重写equals()方法
         -----Map接口：具有映射关系“key-value对”的集合（类似函数）
                         ----HashMap、LinkedHashMap、TreeMap、Hashtable(子类：Properties)
  */
