@@ -2,6 +2,8 @@ package basic.Reflection;
 
 import org.junit.Test;
 
+import java.lang.reflect.Constructor;
+
 public class TestConstructor {
     @Test
     public void test1() throws Exception{
@@ -12,5 +14,16 @@ public class TestConstructor {
         Object obj = clazz1.newInstance();
         Person p = (Person)obj;
         System.out.println(p);
+    }
+
+    @Test
+    public void test2() throws Exception{
+        String classname = "basic.Reflection.Person";
+        Class clazz = Class.forName(classname);
+        Constructor[] cons = clazz.getDeclaredConstructors();
+        for(Constructor c : cons){
+            System.out.println(c);
+        }
+
     }
 }

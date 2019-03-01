@@ -1,8 +1,10 @@
 package basic.Reflection;
 
-public class Person {
+@MyAnnotation(value = "www")
+public class Person extends Creature<String> implements Comparable,MyInterface{
     public String name;
     private int age;
+    int cd;
     //创建类时，尽量保留一个空参的构造器
     public Person(){
         System.out.println("This is Person's empty constructor");
@@ -12,7 +14,7 @@ public class Person {
         this.name = name;
     }
 
-    public Person(String name, int age){
+    private Person(String name, int age){
         this.name = name;
         this.age = age;
     }
@@ -31,11 +33,15 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
+    @MyAnnotation(value = "abc123")
     public void show(){
         System.out.println("I'm a person");
     }
-    public void display(String nation){
+    private void display(String nation) throws Exception{
         System.out.println("My country is " + nation);
+    }
+    class Woman{
+
     }
 
     @Override
@@ -44,5 +50,9 @@ public class Person {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+    public int compareTo(Object o){
+
+        return 0;
     }
 }

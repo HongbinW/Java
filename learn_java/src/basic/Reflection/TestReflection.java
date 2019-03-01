@@ -11,13 +11,13 @@ public class TestReflection {
 
     //在有反射前，如何创建一个类的对象，并调用其中的方法、属性
     @Test
-    public void test1(){
+    public void test1() throws  Exception{
         Person p1 = new Person();
         p1.setAge(13);
         p1.setName("ss");
         System.out.println(p1);
         p1.show();
-        p1.display("HK");
+//        p1.display("HK");
     }
 
     //有了反射，可以通过反射创建一个类的对象，并调用其中的结构
