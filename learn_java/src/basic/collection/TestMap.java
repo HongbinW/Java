@@ -110,7 +110,7 @@ public class TestMap {
         map.put(123,"CC");
         map.put(null,null);
         map.put(new Peroson("DD",23),89);
-                                                                                //Map没有Iterator?
+                                                                                //Map没有Iterator?对！
         Set set1 = map.keySet();
         for(Object obj:set1){
             System.out.println(obj + "---->" + map.get(obj));

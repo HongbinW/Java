@@ -13,7 +13,7 @@ public class Array_learn {
 
         //动态初始化:分开进行
         scores =  new int[4];
-
+        
         //2.如何调用相应的数组元素
         scores[0] = 87;
         scores[1] = 89;
