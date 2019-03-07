@@ -18,6 +18,7 @@ public class Code04_MergeSort {
         sortProcess(arr,mid+1,R);    // T(N/2)
         merge(arr,L,mid,R);             // O(N)
         // T(N) = 2T(N/2) + O(N)
+        //实际上一直拿着一个数组，只不过每次限定的两头位置不一样
     }
 
     public static void merge(int[] arr,int L ,int mid, int R){

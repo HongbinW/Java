@@ -29,7 +29,7 @@ class season1 {
         return seasonDesc;
     }
 
-    //4.创建枚举类的对象：将类的对象声明为public static fianl
+    //4.创建枚举类的对象：将类的对象声明为public static final
     //若只有一个对象就是单例模式
     public static final season1 SPRING = new season1("Spring","warm");
     public static final season1 SUMMER = new season1("Summer","hot");
