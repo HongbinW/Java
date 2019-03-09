@@ -8,6 +8,13 @@ A = 1 ;  B = 2 ..... Z = 26
 /*
 给出一组数据，返回其中出现次数超过1/3的数据，考虑时间复杂度
  */
+
+class MyClass{
+    static int i;
+    public static void main(String argv[]){
+        System.out.println(i);
+    }
+}
 public class test {
     public static void main(String[] args) {
         System.out.println(answers("123"));
