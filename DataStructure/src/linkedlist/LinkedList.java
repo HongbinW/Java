@@ -41,16 +41,36 @@ public class LinkedList<E> {
         return size == 0;
     }
     //在链表的第index位置添加新的元素e
+//    public void add(E e,int index){
+//        if(index < 0 || index > size){
+//            throw new IllegalArgumentException("Add failed. Illegal index");
+//        }
+//        Node prev = dummyHead;
+//        for (int i = 0; i < index; i++) {   //i=0相当于走到了实际的头结点，所以实际第n个元素对应i-1，所以实际上index还是从0开始
+//            prev = prev.next;
+//        }
+//        prev.next = new Node(e, prev.next);
+//        size ++;
+//    }
+    /**
+     * 尝试用递归实现添加操作
+     */
+
     public void add(E e,int index){
         if(index < 0 || index > size){
             throw new IllegalArgumentException("Add failed. Illegal index");
         }
-        Node prev = dummyHead;
-        for (int i = 0; i < index; i++) {   //i=0相当于走到了实际的头结点，所以实际第n个元素对应i-1，所以实际上index还是从0开始
-            prev = prev.next;
+        dummyHead.next = add(e,index,dummyHead.next);
+    }
+    private Node add(E e,int index,Node head){
+        if(index == 0){
+            size ++;
+            Node node = new Node(e);
+            node.next = head;
+            return node;
         }
-        prev.next = new Node(e, prev.next);
-        size ++;
+        head.next = add(e,--index,head.next);
+        return head;
     }
 
     //在链表头添加元素

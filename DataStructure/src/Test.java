@@ -9,8 +9,8 @@ tips:
     正数的反码是他原码
     负数的反码是在其原码的基础上, 除了符号位数不变，其余位取反.
  */
-import java.util.Stack;
 
+import java.util.Stack;
 class ListNode {
     int val;
     ListNode next = null;
@@ -18,26 +18,52 @@ class ListNode {
     ListNode(int val) {
         this.val = val;
     }
-}
-public class Test{
-    public static void main(String[] args) {
-
+    public ListNode(int[] arr){
+        if(arr == null || arr.length == 0){
+            throw new IllegalArgumentException("arr can not be empty");
+        }
+        this.val = arr[0];
+        ListNode cur = this;
+        for(int i = 1; i < arr.length; i ++){
+            cur.next = new ListNode(arr[i]);
+            cur = cur.next;
+        }
     }
 }
 
 class Solution {
-    public ListNode ReverseList(ListNode head) {
-        if(head == null){
+    public ListNode Merge(ListNode list1,ListNode list2) {
+        return merge(list1,list2);
+    }
+    public ListNode merge(ListNode list1,ListNode list2){
+        ListNode node = null;
+        if(list1 == null && list2 == null){
             return null;
         }
-        ListNode prev = null;
-        ListNode pnext = null;
-        while(head != null) {
-            pnext = head.next;
-            head.next = prev;
-            prev = head;
-            head = pnext;
+        if(list1 == null && list2 != null){
+            return list2;
         }
-        return head;
+        if(list1 != null && list2 == null){
+            return list1;
+        }
+        if(list1.val <= list2.val){
+            node = list1;
+            list1 = list1.next;
+        }else {
+            node = list2;
+            list2 = list2.next;
+        }
+        node.next = merge(list1,list2);
+        return node;
+    }
+}
+public class Test{
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        int[] nums1= {1,3,5};
+        ListNode list1 = new ListNode(nums1);
+        int[] nums2= {2,4,6};
+        ListNode list2 = new ListNode(nums2);
+        s.Merge(list1,list2);
     }
 }

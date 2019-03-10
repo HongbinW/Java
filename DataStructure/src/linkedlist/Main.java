@@ -24,6 +24,7 @@ public class Main {
         System.out.println(linkedlist);
 
         System.out.println(linkedlist.get(2));
+
     }
 }
 
