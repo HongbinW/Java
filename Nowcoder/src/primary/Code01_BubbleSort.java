@@ -15,7 +15,6 @@ public class Code01_BubbleSort {
                     swap(arr,j,j+1);
             }
         }
-
     }
     public static void swap(int[] arr ,int x,int y){
         arr[x] = arr[x] ^ arr[y];
