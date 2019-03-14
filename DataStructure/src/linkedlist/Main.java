@@ -2,6 +2,8 @@ package linkedlist;
 
 import stack.ArrayStack;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 public class Main {
@@ -24,7 +26,8 @@ public class Main {
         System.out.println(linkedlist);
 
         System.out.println(linkedlist.get(2));
-
+        linkedlist.removeElement(1);
+        System.out.println(linkedlist);
     }
 }
 

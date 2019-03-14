@@ -9,7 +9,7 @@ public class BSTMain {
         for(int i = 0; i < nums.length; i++){
             bst.add(nums[i]);
         }
-        bst.remove(8);
+        bst.remove(7);
 //        bst.removeMin();
         System.out.println(bst);
     }

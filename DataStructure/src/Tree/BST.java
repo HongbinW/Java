@@ -252,8 +252,8 @@ public class BST <E extends Comparable<E>> {
                 return newNode;
             }
             newNode.right = removeMin(node.right);
-            newNode.left = node.left;
-            node = null;
+            newNode.left = node.left;   //左右不可调换，因为此时newNode指的是树中的节点，则如果先进行左传递，
+            node = null;                //则6会直接挂到8的下面，这样在再执行removeMin时，删除的是新节点6
             return newNode;
         }
         else if(e.compareTo(node.e) < 0){

@@ -168,6 +168,22 @@ public class LinkedList<E> {
         return remove(0);
     }
 
+    //删除元素e
+    public void removeElement(E e){
+        Node node = dummyHead;
+        while(node.next != null){
+            if(node.next.e.equals(e)){
+                Node delNode = node.next;
+                node.next = delNode.next;
+                delNode.next = null;
+                size--;
+                break;
+            }
+            node = node.next;
+        }
+    }
+//
+
     //删除最后一个元素，并返回删除元素
     public E removeLast(){
         return remove(size - 1);
