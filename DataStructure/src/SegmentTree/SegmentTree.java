@@ -48,6 +48,49 @@ public class SegmentTree<E>{
         return 2 * index + 2;
     }
 
+    //返回区间[queryL,queryR]的值
+    public E query(int queryL, int queryR){
+        if(queryL > queryR || queryL < 0 || queryL >= data.length || queryR >= data.length || queryR < 0){
+            throw new RuntimeException("Index is illegal.");
+        }
+        return query(0,0,data.length -1,queryL,queryR);
+    }
+    //以treeIndex为根的线段树[L,R]的范围内，搜索区间[queryL,queryR]的值
+    private E query(int treeIndex, int L, int R, int queryL, int queryR){
+        if(L == queryL && R == queryR){
+            return tree[treeIndex];
+        }
+        int mid = L + (R - L) / 2;
+        if(queryR <= mid){
+            return query(leftChild(treeIndex),L,mid,queryL,queryR);
+        }else if(queryL > mid){
+            return query(rightChild(treeIndex),mid+1,R,queryL,queryR);
+        }else{
+            return merger.merge(query(leftChild(treeIndex),L,mid,queryL,mid),
+                    query(rightChild(treeIndex),mid+1,R,mid+1,queryR));
+        }
+    }
+
+    //将index位置的值，更新为e
+    public void set(int index,E e){
+        if(index < 0 || index >= data.length){
+            throw new IllegalArgumentException("Index is illegal.");
+        }
+        data[index] = e;
+        set(0,index,0,data.length-1,e);
+    }
+    private void set(int treeIndex,int index, int L, int R,E e){
+        if(L == R){
+            tree[treeIndex] = e;
+            return;
+        }
+        int mid = L + (R - L) / 2;
+        if(index >= mid + 1)
+            set(rightChild(treeIndex),index, mid + 1, R,e);
+        else // index <= mid
+            set(leftChild(treeIndex), index, L, mid,e);
+        tree[treeIndex] = merger.merge(tree[leftChild(treeIndex)],tree[rightChild(treeIndex)]);
+    }
     @Override
     public String toString(){
         StringBuilder res = new StringBuilder();
