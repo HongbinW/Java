@@ -25,7 +25,7 @@ public class M13_RobotMovingCount {
         return count;
     }
 
-    private int getDigitSum(int number){
+    private int getDigitSum(int number){        //返回当前坐标下数位之和
         int sum = 0;
         while(number > 0){
             sum += number % 10;

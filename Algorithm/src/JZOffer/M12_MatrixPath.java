@@ -34,8 +34,8 @@ public class M12_MatrixPath {
         //递归
         if(!mark[cr][cl] && matrix[cr][cl] == target.charAt(i)){
             mark[cr][cl] = true;
-            return matrixPath(matrix,mark,target,cr-1,cl,i+1) ||
-            matrixPath(matrix,mark,target,cr+1,cl,i+1) ||
+            return matrixPath(matrix,mark,target,cr-1,cl,i+1) ||    //四个方向有一个能走即可
+            matrixPath(matrix,mark,target,cr+1,cl,i+1) ||           //因为是或运算，即使前面return false也没事
             matrixPath(matrix,mark,target,cr,cl-1,i+1) ||
             matrixPath(matrix,mark,target,cr,cl+1,i+1);
         }

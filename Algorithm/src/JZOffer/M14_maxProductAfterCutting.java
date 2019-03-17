@@ -7,7 +7,7 @@ package JZOffer;
  */
 public class M14_maxProductAfterCutting {
     //动态规划  f(n) = max[ f(i) * f(n-i) ]
-    public int solution1(int length){
+    public static int solution1(int length){
         if(length < 2)
             return 0;
         if(length == 2)
@@ -33,5 +33,24 @@ public class M14_maxProductAfterCutting {
             }
         }
         return products[length];
+    }
+    public static int solution2(int length){
+        if(length < 2)
+            return 0;
+        if(length == 2)
+            return 1;
+        if(length == 3)
+            return 2;
+        int countOf3 = length / 3;
+        if(length - countOf3 * 3 == 1){
+            countOf3--;
+        }
+        int countOf2 = (length - countOf3 * 3)/2;
+        return (int)(Math.pow(3,countOf3)) * (int)(Math.pow(2,countOf2));
+    }
+
+    public static void main(String[] args) {
+        System.out.println(solution1(8));
+        System.out.println(solution2(8));
     }
 }
