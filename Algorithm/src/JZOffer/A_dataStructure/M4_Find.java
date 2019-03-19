@@ -1,4 +1,4 @@
-package JZOffer;
+package JZOffer.A_dataStructure;
 
 public class M4_Find {
     private class Q{

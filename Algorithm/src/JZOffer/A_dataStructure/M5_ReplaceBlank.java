@@ -1,4 +1,4 @@
-package JZOffer;
+package JZOffer.A_dataStructure;
 
 public class M5_ReplaceBlank {
     private class Q{

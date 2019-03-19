@@ -1,4 +1,4 @@
-package JZOffer;
+package JZOffer.A_dataStructure;
 class ListNode {
     int val;
     ListNode next = null;

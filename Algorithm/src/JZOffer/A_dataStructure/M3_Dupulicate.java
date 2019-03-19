@@ -1,4 +1,4 @@
-package JZOffer;
+package JZOffer.A_dataStructure;
 
 import java.util.ArrayList;
 import java.util.HashMap;

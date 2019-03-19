@@ -1,4 +1,4 @@
-package JZOffer;
+package JZOffer.B_Algorithm;
 
 import java.io.FileOutputStream;
 
