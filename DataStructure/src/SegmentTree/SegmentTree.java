@@ -12,6 +12,8 @@ public class SegmentTree<E>{
         }
 
         tree = (E[])new Object[4 * arr.length];
+        //如果传入数组的长度刚好是2^n，则刚好占一层，然后总节点数为2^(n+1)-1,所以大致需要2*length的长度
+        //而如果传入的数组所占得叶子节点占了最后两层，则即在上述基础上，再多一层，而多的这一层刚好是上面总长度，所以再乘2
         buildSegmentTree(0,0,data.length-1);
     }
     //在treeIndex的位置创建表示区间[L,R]的线段树
