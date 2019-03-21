@@ -7,6 +7,10 @@ import java.util.TreeMap;
  * @Date: 2019/3/19 20:44
  * @Version 1.0
  * @Description: 字典树、前缀树，主要用于字符串处理
+ *  局限性：空间！
+ *  扩展：压缩搜索树，节省空间，维护麻烦
+ *        三分搜索树，节省空间，牺牲时间
+ *        后缀树
  */
 
 public class Trie {
@@ -56,7 +60,7 @@ public class Trie {
     }
 
     private void add_DG(String word, int i, Node node){
-        if(i == word.length()){     //注意
+        if(i == word.length()){     //注意i的取值,应该是他比较完最后一个，即length-1后才能结束，所以是i==word.length()
             if(!node.isWord){
                 node.isWord = true;
                 size ++;
