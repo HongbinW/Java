@@ -66,19 +66,24 @@ public ListNode deleteDuplication(ListNode pHead)
     ListNode preNode = null;
     ListNode curNode = pHead;
     ListNode nextNode = curNode.next;
-    while(curNode.next != null){
+    while(nextNode != null){
 //        nextNode = curNode.next;
         if(curNode.value == nextNode.value){
-            if(curNode != pHead) {
-//                curNode = nextNode.next;
-//                nextNode = curNode.next;
+            int num = curNode.value;
+            while(nextNode.value == num){
                 nextNode = nextNode.next;
-//                preNode.next = curNode;
-            }else{
-                curNode = nextNode.next;
-                nextNode = nextNode.next;
-                pHead = curNode;
+                if(nextNode == null){
+                    return null;
+                }
             }
+            if(curNode == pHead){
+                pHead = nextNode;
+                curNode = nextNode;
+            }else{
+                curNode = nextNode;
+                preNode.next = curNode;
+            }
+            nextNode = nextNode.next;
         }else{
             preNode = curNode;
             curNode = nextNode;
@@ -95,8 +100,8 @@ public ListNode deleteDuplication(ListNode pHead)
         ListNode node3 = new ListNode(3);
         ListNode node4 = new ListNode(3);
         ListNode node5 = new ListNode(3);
-        ListNode node6 = new ListNode(4);
-        ListNode node7 = new ListNode(5);
+        ListNode node6 = new ListNode(3);
+        ListNode node7 = new ListNode(3);
 
         M18_DeleteNode test = new M18_DeleteNode();
 //        test.DeleteNode(node1,node1);
