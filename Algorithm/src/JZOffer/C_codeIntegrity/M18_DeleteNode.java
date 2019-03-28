@@ -70,13 +70,13 @@ public ListNode deleteDuplication(ListNode pHead)
 //        nextNode = curNode.next;
         if(curNode.value == nextNode.value){
             int num = curNode.value;
-            while(nextNode.value == num){
+            while(nextNode.value == num){       //直到找到下一个不重复的元素
                 nextNode = nextNode.next;
                 if(nextNode == null){
                     return null;
                 }
             }
-            if(curNode == pHead){
+            if(curNode == pHead){           //如果当前节点指的依然是头结点，则更新头结点
                 pHead = nextNode;
                 curNode = nextNode;
             }else{
