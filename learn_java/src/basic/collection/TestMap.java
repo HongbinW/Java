@@ -49,8 +49,11 @@ public class TestMap {
         map.put("BB",45);
         map.put(123,"CC");
         map.put(null,null);
-        map.put(new Peroson("DD",23),89);
-        map.put(new Peroson("DD",23),87);
+        Peroson p = new Peroson("DD",23);
+        Peroson p2 = new Peroson("DD",23);
+        map.put(p,89);
+        map.put(p2,87);
+        System.out.println(p.equals(p2));
         System.out.println(map.size());
         System.out.println(map);
         map.remove("BB");

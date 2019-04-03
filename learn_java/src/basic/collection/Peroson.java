@@ -33,7 +33,7 @@ public class Peroson implements Comparable {
         this.age = age;
     }
 
-    //重写equals方法，可是其返回值为true
+//    重写equals方法，可是其返回值为true
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
