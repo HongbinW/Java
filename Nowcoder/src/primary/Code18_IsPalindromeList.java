@@ -8,7 +8,7 @@ import java.util.Stack;
  * @Version 1.0
  * @Description:
  */
-public class IsPalindromeList {
+public class Code18_IsPalindromeList {
     public static class Node {
         public int value;
         public Node next;
@@ -100,9 +100,6 @@ public class IsPalindromeList {
         Node node3 = new Node(3);
         Node node4 = new Node(2);
         Node node5 = new Node(1);
-//        Node node1 = new Node(1);
-//        Node node1 = new Node(1);
-//        Node node1 = new Node(1);
         node1.next=node2;
         node2.next=node3;
         node3.next=node4;
