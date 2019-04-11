@@ -1,4 +1,4 @@
-package hard;
+package dynamic_programming;
 
 public class Code01_Package {
     public static int[][] condition = new int[5][9];

@@ -1,21 +1,25 @@
-class Solution {
-    public String addBinary(String a, String b) {
-        int c = 0;
-        int i = 0;
-        StringBuilder sb = new StringBuilder();
-        while(i < a.length() || i < b.length() || c == 1){
-            int a1 = i >= a.length() || i < 0 ? 0 : a.charAt(a.length()-1-i)-48;
-            int b1 = i >= b.length() || i < 0 ? 0 : b.charAt(b.length()-1-i)-48;
-            int sum = a1 + b1 + c;
-            c = sum > 1 ? 1 : 0;
-            sb.append(sum%2);
-            i++;
-        }
-        sb.reverse();
-        return sb.toString();
+public class Solution<T> {
+    public Solution(T ttt){
+        new test<T>(1,ttt);
     }
-
     public static void main(String[] args) {
-        System.out.println(new Solution().addBinary("1101","11"));
+        String a = "Abc";
+        new test<>(1,"abc");
+        new Solution<String>("abc");
+
+    }
+}
+class test<T>{
+    int status;
+    String msg;
+    T data;
+    public test(){
+        System.out.println("空参构造器");
+    }
+    public test(int status,String msg){
+        System.out.println("status,msg");
+    }
+    public test(int status,T data){
+        System.out.println("status,data");
     }
 }
