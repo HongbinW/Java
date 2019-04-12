@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Test{
     static class ListNode{
         int value;
@@ -13,13 +15,16 @@ public class Test{
         }
     }
     public static void main(String[] args) {
-        ListNode node1 = new ListNode(1);
-        ListNode node2 = new ListNode(2);
-        ListNode node3 = new ListNode(3);
-        node1.next = node2;
-        node2.next = node3;
-//        node1 = node2;      //此处，node2已将自己的value和next全都给了node1
-        node1.next = node2.next;        //此处，只是将node1也连到node3
-        System.out.println(node1.next.value);
+        ArrayList list1 = new ArrayList();
+        ArrayList list2 = new ArrayList();
+        for(int i = 0 ; i < 3; i++){
+            list1.add(i);
+            list2.add(i);
+        }
+        ArrayList<ArrayList> list = new ArrayList<>();
+        list.add(list1);
+        System.out.println(list.contains(list2));
+        System.out.println(list1);
+        System.out.println(list2);
     }
 }
