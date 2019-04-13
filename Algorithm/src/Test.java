@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Test{
     static class ListNode{
@@ -14,17 +17,11 @@ public class Test{
             this.next = null;
         }
     }
+    public void test(int[] test){
+        test[1] = 886;
+    }
     public static void main(String[] args) {
-        ArrayList list1 = new ArrayList();
-        ArrayList list2 = new ArrayList();
-        for(int i = 0 ; i < 3; i++){
-            list1.add(i);
-            list2.add(i);
-        }
-        ArrayList<ArrayList> list = new ArrayList<>();
-        list.add(list1);
-        System.out.println(list.contains(list2));
-        System.out.println(list1);
-        System.out.println(list2);
+        int[] arr = new int[]{1,2,3};
+        System.out.println(arr[1]);
     }
 }
