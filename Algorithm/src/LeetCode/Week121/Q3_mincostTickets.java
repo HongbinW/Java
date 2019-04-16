@@ -7,7 +7,7 @@ import java.util.Set;
  * @Author: HongbinW
  * @Date: 2019/4/13 12:04
  * @Version 1.0
- * @Description: DP有点难
+ * @Description: DP有点难 LeetCode983(English)
  * 在一个火车旅行很受欢迎的国度，你提前一年计划了一些火车旅行。在接下来的一年里，你要旅行的日子将以一个名为 days 的数组给出。
  * 每一项是一个从 1 到 365 的整数。
  *
