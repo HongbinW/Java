@@ -72,5 +72,20 @@ public class Code01_Trie {
                 node.end --;
             }
         }
+        //以pre为前缀的单词数
+        public int prefixNumber(String pre){
+            if(pre == null)
+                return 0;
+            char[] chs = pre.toCharArray();
+            TrieNode node = root;
+            for(int i = 0; i < chs.length; i++){
+                int index = chs[i] - 'a';
+                if(node.nexts[index] == null){
+                    return 0;
+                }
+                node = node.nexts[index];
+            }
+            return node.path;
+        }
     }
 }
