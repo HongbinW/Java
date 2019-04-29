@@ -15,14 +15,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Node node = null;
-        Node node1 = new Node(2);
-        node.next = node1;
-        node1.next = null;
-        if(node == null){
-            System.out.println("node is null");
-        }else
-            System.out.println(node.value + " " + node.next.value);
-
+        String s = "%Y";
+        System.out.println(s.charAt(0) == s.charAt(1));
     }
 }
