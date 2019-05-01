@@ -1,4 +1,4 @@
-package primary.primary7;
+package primary.primary7_Greed;
 
 /**
  * @Author: HongbinW

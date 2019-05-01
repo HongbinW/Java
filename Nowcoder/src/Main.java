@@ -1,30 +1,19 @@
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
+import java.util.ArrayList;
+import java.util.Scanner;
 public class Main{
-    public static void main(String []args) throws IOException{
-        BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
-        String str;
-        while((str=bf.readLine())!=null){
-            StringBuffer builder = new StringBuffer();
-            for(int i=0;i<26;i++){
-                char c=(char)(i+'A');
-                for(int j=0;j<str.length();j++){
-                    char sc=str.charAt(j);
-                    if(c==sc||c==sc-32){
-                        builder.append(sc);
-                    }
-                }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        ArrayList<String> list = new ArrayList<>();
+        for(int i = 0; i < N; i++){
+            String str = sc.next() + "0000000";
+            while(str.length() >= 8){
+                list.add(str.substring(0,8));
+                str = str.substring(8);
             }
-            for(int i=0;i<str.length();i++){
-                char c=str.charAt(i);
-                if(!(c>='a'&&c<='z')&&!(c>='A'&&c<='Z')){
-                    builder.insert(i,c);
-                }
-            }
-            System.out.println(builder.toString());
         }
-        bf.close();
+        for(int i = 0 ; i < list.size(); i++){
+            System.out.println(list.get(i));
+        }
     }
 }
