@@ -1,4 +1,4 @@
-package examination.HuaWei;
+package examination.HuaWei.huawei_test;
 
 import java.util.ArrayList;
 import java.util.Scanner;

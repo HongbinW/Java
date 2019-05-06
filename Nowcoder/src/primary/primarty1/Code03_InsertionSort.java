@@ -1,4 +1,4 @@
-package primary;
+package primary.primarty1;
 import java.util.Arrays;
 //每次排0—N（次数）位置上的数，将其从小到大排列，依次比较，N和N-1，N-1和N-2……
 //比如像理牌，手上的牌已经从小到大排好，然后新来一张牌，那就从最大的往最小的看能插到哪个位置，因此叫插入排序

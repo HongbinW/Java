@@ -1,4 +1,4 @@
-package primary;
+package primary.primarty1;
 //归并排序
 
 import java.util.Arrays;

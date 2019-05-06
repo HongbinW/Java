@@ -1,4 +1,4 @@
-package primary;
+package primary.primarty1;
 import java.util.Arrays;
 //找到剩下序列中最小元素的索引，然后与当前位置交换
 //结束方向：从前往后

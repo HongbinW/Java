@@ -1,4 +1,4 @@
-package primary;
+package primary.primarty1;
 //在一个数组中，每一个数左边比当前小的数累加起来
 import java.util.Arrays;
 
