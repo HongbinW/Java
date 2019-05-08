@@ -14,6 +14,8 @@ public class M7_RebuildBinaryTree {
     public static Node RebuildBinaryTree(int[] prevOrder, int[] inOrder){
         return RebuildBinaryTree(prevOrder,inOrder,0,prevOrder.length-1,0);
     }
+
+
     //在inOrder的[L,R)的范围内，找与prevOrder[curRoot]相等的值为当前节点的值
     private static Node RebuildBinaryTree(int[] prevOrder, int[] inOrder, int L, int R, int curRoot){
         if(L > R)
