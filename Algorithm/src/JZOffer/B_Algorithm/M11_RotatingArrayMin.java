@@ -41,8 +41,27 @@ public class M11_RotatingArrayMin {
         return arr[mid];
     }
 
+    public static int method2(int[] array){
+        int len = array.length;
+        if(len == 0)
+            return 0;
+        int low = 0, high = len - 1;
+        while(low < high){
+            int mid = low + (high - low) / 2;
+            if(array[mid] > array[high]){   //说明肯定有旋转的数组，且
+                low = mid + 1;
+            }else if(array[mid] == array[high]){
+                high = high - 1;
+            }else{
+                high = mid;
+            }
+        }
+        return array[low];
+    }
+
     public static void main(String[] args) {
-        int[] arr = {1,0,1,1,1};
+        int[] arr = {5,1,2};
         System.out.println(RotatingArrayMin(arr));
+        System.out.println(method2(arr));
     }
 }
