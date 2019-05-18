@@ -7,7 +7,10 @@ public class M30_StackWithMin {
     private Stack<Integer> mindata = new Stack<>();
     public void push(int value){
         data.push(value);
-        if(mindata.peek() >= value){
+        if(mindata.isEmpty()){
+            mindata.push(value);
+        }
+        else if (mindata.peek() >= value){
             mindata.push(value);
         }else{
             mindata.push(mindata.peek());

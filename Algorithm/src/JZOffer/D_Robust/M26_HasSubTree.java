@@ -22,6 +22,8 @@ public class M26_HasSubTree {
             return true;
         if(root1 == null)
             return false;
+        //如果value时double类型，则不能直接用相等，可以考虑将数值转化为字符串
+        //Double.toString(double_x).equals(Double.toString(double_y))
         if(root1.val == root2.val){
             return tree1HasTree2(root1.left,root2.left) && tree1HasTree2(root1.right,root2.right);
         }else

@@ -39,4 +39,5 @@ public class M7_RebuildBinaryTree {
         int[] inOrder = {3,2,4,1,6,5,7};
         Node node = RebuildBinaryTree(prevOrder,inOrder);
     }
+
 }
