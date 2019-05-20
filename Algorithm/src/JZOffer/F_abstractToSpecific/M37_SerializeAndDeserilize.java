@@ -1,5 +1,7 @@
 package JZOffer.F_abstractToSpecific;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class M37_SerializeAndDeserilize {
@@ -12,7 +14,7 @@ public class M37_SerializeAndDeserilize {
             this.val = val;
         }
     }
-    String Serialize(TreeNode root) {
+    static String  Serialize(TreeNode root) {
         String res = "";
         if(root == null){
             return res;
@@ -21,24 +23,48 @@ public class M37_SerializeAndDeserilize {
         stack.push(root);
         while(!stack.isEmpty()){
             TreeNode node = stack.pop();
-            stack.push(node.right);
-            stack.push(node.right);
             if(node != null) {
                 res += node.val + ",";
+                stack.push(node.right);
+                stack.push(node.left);
             }else{
                 res += "$,";
             }
         }
         return res.substring(0,res.length()-1);
     }
-    TreeNode Deserialize(String str) {
-        if(str.equals(""))
-            return null;
+    static TreeNode Deserialize(String str) {
         String[] strs = str.split(",");
-        TreeNode head = new TreeNode(Integer.parseInt(strs[0]));
-        TreeNode node = head;
-        for(int i = 1; i < strs.length; i++){
-
+        Queue<String> queue = new LinkedList<>();
+        for(String ele : strs){
+            queue.offer(ele);
         }
+        return process(queue);
+    }
+    private static TreeNode process(Queue<String> queue){
+        if(queue.isEmpty()){
+            return null;
+        }
+        String ele = queue.poll();
+        if(ele.equals("$")){
+            return null;
+        }else{
+            TreeNode node = new TreeNode(Integer.parseInt(ele));
+            node.left = process(queue);
+            node.right = process(queue);
+            return node;
+        }
+    }
+
+    public static void main(String[] args) {
+        TreeNode node = new TreeNode(10);
+        node.left = new TreeNode(6);
+        node.left.left = new TreeNode(4);
+        node.left.right = new TreeNode(8);
+        node.right = new TreeNode(14);
+        node.right.left = new TreeNode(12);
+        node.right.right = new TreeNode(16);
+        String str = Serialize(node);
+        Deserialize(str);
     }
 }
