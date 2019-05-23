@@ -1,5 +1,6 @@
 package examination.HuaWei.huawei_2019;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main3 {
@@ -12,7 +13,7 @@ public class Main3 {
         }
     }
 
-    public static void methods(int gifts, int kids){
+    public static void methods(int gifts, int kids, ArrayList<String> res, String str){
 
     }
 }
