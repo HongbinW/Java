@@ -1,5 +1,7 @@
 import java.util.Scanner;
-
+//字符串，将%和#之间的部分重复%前面数字的次数
+//比如3%g2%n## 则结果应该是gnngnngnn
+//3%acm#2%acm#  acmacmacmacmacm
 public class Main3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

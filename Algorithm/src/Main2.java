@@ -1,5 +1,10 @@
 import java.util.Scanner;
-
+//岛屿问题。上下左右和斜对角线都算作一个岛屿。
+//比如
+//0 1 0
+//1 0 0
+//1 0 1
+//则结果时2
 public class Main2{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

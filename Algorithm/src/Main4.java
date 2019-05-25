@@ -1,5 +1,13 @@
 import java.util.Scanner;
-
+//给松鼠安排房间
+//房间是树的形式。i/2为当前节点的父节点
+//比如
+/*
+    1
+   2  3
+  4 5
+ */
+//每个节点存放该节点的房间数，从节点间移动的路径都是1，求把所有松鼠安排好房间的最短路径和。
 public class Main4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
