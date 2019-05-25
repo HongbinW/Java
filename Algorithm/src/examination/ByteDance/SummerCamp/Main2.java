@@ -1,3 +1,5 @@
+package examination.ByteDance.SummerCamp;
+
 import java.util.Scanner;
 //岛屿问题。上下左右和斜对角线都算作一个岛屿。
 //比如

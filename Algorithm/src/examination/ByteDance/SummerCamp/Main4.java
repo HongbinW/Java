@@ -1,3 +1,5 @@
+package examination.ByteDance.SummerCamp;
+
 import java.util.Scanner;
 //给松鼠安排房间
 //房间是树的形式。i/2为当前节点的父节点

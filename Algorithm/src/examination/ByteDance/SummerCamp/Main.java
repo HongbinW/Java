@@ -1,3 +1,5 @@
+package examination.ByteDance.SummerCamp;
+
 import java.util.Scanner;
 //小明去旅行。每个景点的评分时a[i]，只能去两个景点。res=a[j]-a[i]-(j-i)。求最大值
 
