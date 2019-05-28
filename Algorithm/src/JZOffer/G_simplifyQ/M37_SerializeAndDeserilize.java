@@ -1,4 +1,4 @@
-package JZOffer.F_abstractToSpecific;
+package JZOffer.G_simplifyQ;
 
 import java.util.LinkedList;
 import java.util.Queue;

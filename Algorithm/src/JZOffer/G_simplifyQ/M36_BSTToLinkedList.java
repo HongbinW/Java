@@ -1,4 +1,4 @@
-package JZOffer.F_abstractToSpecific;
+package JZOffer.G_simplifyQ;
 
 import java.util.ArrayList;
 import java.util.Stack;

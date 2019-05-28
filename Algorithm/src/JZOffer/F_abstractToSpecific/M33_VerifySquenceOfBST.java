@@ -9,7 +9,7 @@ public class M33_VerifySquenceOfBST {
     }
 
     public static boolean verifySeqOfBST(int[] seq, int start, int end){
-        if(end == start || end < start)
+        if(end <= start)
             return true;
         int i = start;
         boolean flag = false;   //碰到第一个比seq[end]大的之后就要都比seq[end]大
