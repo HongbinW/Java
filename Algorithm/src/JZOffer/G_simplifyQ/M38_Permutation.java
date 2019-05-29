@@ -18,8 +18,9 @@ public class M38_Permutation {
             list.add(new String(chs));
         }
         for(int i = start; i < chs.length; i++){
-            if(i != start && chs[i] == chs[start])
+            if(i != start && chs[i] == chs[start]) {
                 continue;
+            }
             swap(chs,start,i);
             process(chs,start+1,list);
             swap(chs,start,i);
@@ -32,7 +33,7 @@ public class M38_Permutation {
     }
 
     public static void main(String[] args) {
-        String str = "ab";
+        String str = "abc";
         ArrayList<String> list = Permutation(str);
         for(String ele : list){
             System.out.println(ele);
