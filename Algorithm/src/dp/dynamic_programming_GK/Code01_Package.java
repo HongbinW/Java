@@ -1,4 +1,4 @@
-package dynamic_programming_GK;
+package dp.dynamic_programming_GK;
 
 public class Code01_Package {
     public static int[][] condition = new int[5][9];

@@ -1,4 +1,4 @@
-package dynamic_programming_GK;
+package dp.dynamic_programming_GK;
 
 /**
  * @Author: HongbinW
