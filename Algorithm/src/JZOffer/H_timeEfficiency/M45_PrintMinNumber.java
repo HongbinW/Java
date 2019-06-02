@@ -1,5 +1,6 @@
 package JZOffer.H_timeEfficiency;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -16,36 +17,13 @@ public class M45_PrintMinNumber {
         }
         return sb.toString();
     }
-
-    public static void main(String[] args) {
-        System.out.println(PrintMinNumber(new int[]{1,2,3,4,5}));
-    }
 }
 
 class MyComperator<Integer> implements Comparator<Integer>{
-
-    public MyComperator(){
-
-    }
-
     @Override
     public int compare(Integer o1, Integer o2) {
-        int i = 0;
-        String str1 = o1.toString();
-        String str2 = o2.toString();
-        while (i < str1.length() && i < str2.length()){
-            if (str1.charAt(i) < str2.charAt(i))
-                return 1;
-            else if (str1.charAt(i) > str2.charAt(i))
-                return -1;
-            else {
-                i++;
-            }
-        }
-        if(i == str1.length()){
-            return str2.charAt(i) - str1.charAt(i-1);
-        }else{
-            return str1.charAt(i) - str2.charAt(i-1);
-        }
+        String str1 = String.valueOf(o1);
+        String str2 = String.valueOf(o2);
+        return (str1+str2).compareTo((str2+str1));
     }
 }
