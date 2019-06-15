@@ -60,7 +60,7 @@ public class M40_GetLeastNumbers {
             }
         }
         swap(arr,start,end);
-        return start;
+        return start;   //返回当前第k大的数的索引
     }
     public static void swap(int[] arr, int i, int j){
         int temp = arr[i];

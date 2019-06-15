@@ -37,7 +37,7 @@ public class M49_GetUglyNumber {
         int T2 = 0, T3 = 0, T5 = 0;
         for (int i = 1; i < index; i++){
             while (T2 < index && arr[T2] * 2 <= arr[i-1]){
-                T2++;
+                T2++;       //找到第一个*2大于当前已知的最大丑数的索引
             }
             while (T3 < index && arr[T3] * 3 <= arr[i-1]){
                 T3++;
