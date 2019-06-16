@@ -70,12 +70,30 @@ public class M34_FindPath {
         }
     }
 
+    ArrayList<ArrayList<Integer> > res = new ArrayList<ArrayList<Integer> >();
+    ArrayList<Integer> temp = new ArrayList<Integer>();
+    public ArrayList<ArrayList<Integer>> FindPath3(TreeNode root,int target) {
+        if(root == null)
+            return res;
+        target -= root.val;
+        temp.add(root.val);
+        if(target == 0 && root.left == null && root.right == null)
+            res.add(new ArrayList<Integer>(temp));
+        else{
+            FindPath3(root.left, target);
+            FindPath3(root.right, target);
+        }
+        temp.remove(temp.size()-1);
+        return res;
+    }
+
     public static void main(String[] args) {
         TreeNode node = new TreeNode(10);
         node.left = new TreeNode(5);
         node.left.left = new TreeNode(4);
         node.left.right = new TreeNode(7);
         node.right = new TreeNode(12);
-        FindPath2(node,22);
+
+        new M34_FindPath().FindPath3(node,22);
     }
 }
