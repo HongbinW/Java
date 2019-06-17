@@ -24,4 +24,11 @@ public class Code01_getMaxWindow {
         }
         return res;
     }
+
+    public static void main(String[] args) {
+        int[] res = getMaxWindow(new int[]{1,2,4,6,3,3,3},3);
+        for (int i = 0 ; i < res.length; i++){
+            System.out.print(res[i] + " ");
+        }
+    }
 }
