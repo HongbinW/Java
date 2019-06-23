@@ -2,20 +2,27 @@ import java.util.Arrays;
 
 class Solution {
     public static void main(String[] args) {
-        int[] arr = new int[5];
-        for (int i = 0 ; i < arr.length; i++){
-            arr[i] = i;
-        }
-        System.out.println(Arrays.toString(arr));
-        Season str = Season.valueOf("SPRING");
-        System.out.println(str);
-        Season season = Season.SPRING;
-        System.out.println(season);
-        Season.valueOf("Summer");
+        new Father().g();
+        new Son().g();
+    }
+}
+class Father{
+    public int x = 0;
+    private void f(){
+
+    }
+    public static void g(){
+        System.out.println("!23");
     }
 }
 
-enum Season{
-    SPRING,Summer,Alturm,Winter
+class Son extends Father{
+    public int x = 1;
+    private void f(){
+
+    }
+    public static void g(){
+        System.out.println("456");
+    }
 }
 
