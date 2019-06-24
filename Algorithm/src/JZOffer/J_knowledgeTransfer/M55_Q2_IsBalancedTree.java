@@ -32,28 +32,18 @@ public class M55_Q2_IsBalancedTree {
         return Math.max(getDepth(node.left,depth+1),getDepth(node.right,depth+1));
     }
 
-    public static class Structure{
-        boolean flag;
-        int depth;
-
-        public Structure(boolean flag,int depth){
-            this.flag = flag;
-            this.depth = depth;
-        }
+    //法二：更佳，这样避免了重复计算。即先遍历子节点，如果子节点不平衡，则返回-1，否则继续遍历
+    // OJ结果差不多？？？？？？？
+    public boolean IsBalanced_Solution(TreeNode root) {
+        return getDepth(root) != -1;
     }
 
-    public Structure isBalanced(TreeNode root, int depth){
-        if(root == null){
-            return new Structure(true,0);
-        }
-        Structure left = isBalanced(root.left,0);
-        Structure right = isBalanced(root.right,0);
-        if (left.flag && right.flag){
-            int diff = Math.abs(left.depth-right.depth);
-            if(diff <= 1){
-                return new Structure(true,Math.max(left.depth,right.depth)+ 1);
-            }
-        }
-        return new Structure(false,-1);
+    private int getDepth(TreeNode root) {
+        if (root == null) return 0;
+        int left = getDepth(root.left);
+        if (left == -1) return -1;
+        int right = getDepth(root.right);
+        if (right == -1) return -1;
+        return Math.abs(left - right) > 1 ? -1 : 1 + Math.max(left, right);
     }
 }
