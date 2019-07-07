@@ -15,20 +15,21 @@ public class LeetCode437_pathSum {
     }
 
     public int pathSum(TreeNode root, int sum) {
-        if (root==null)
+        if(root == null){
             return 0;
-        return pathSum(root.left, sum) + pathSum(root.right, sum) + dfs(root, sum);
+        }
+        return process(root,sum) + pathSum(root.left,sum) + pathSum(root.right,sum);
     }
-
-    public int dfs(TreeNode node, int sum) {
-        if (node==null)
+    public int process(TreeNode root, int sum){
+        if(root == null){
             return 0;
-
+        }
         int count = 0;
-        if (node.val == sum)
-            count = 1;
-
-        return count + dfs(node.left, sum - node.val) + dfs(node.right, sum - node.val);
+        int curSum = sum - root.val;
+        if(curSum == 0){
+            count = 1;      //不能直接返回，因为可能下面和为0
+        }
+        return process(root.left,curSum) + process(root.right,curSum) + count;
     }
 
 
