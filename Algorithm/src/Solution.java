@@ -1,37 +1,36 @@
-import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.util.Stack;
 
 public class Solution {
-    static ArrayList<String> res = new ArrayList<>();
-    public static ArrayList<String> Permutation(String str) {
-        char[] cs = str.toCharArray();
-        process(0,cs);
-        return res;
+    Stack<Integer> stack1 = new Stack<Integer>();
+    Stack<Integer> stack2 = new Stack<Integer>();
+
+    public void push(int node) {
+        stack1.push(node);
     }
 
-    public static void process(int index, char[] cs){
-        if (index == cs.length-1) {
-            res.add(new String(cs));
-        }else {
-            for (int i = index; i < cs.length; i++) {
-                swap(cs, i, index);
-                process(index + 1, cs);
-                swap(cs, i, index);
+    public int pop() {
+        if(stack1.isEmpty() && stack2.isEmpty()){
+            throw new RuntimeException("The queue is Empty.");
+        }
+        if(stack2.isEmpty()){
+            while(!stack1.isEmpty()){
+                stack2.push(stack1.pop());
             }
         }
-    }
-
-    public static void swap(char[] arr, int i,int j){
-        char temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+        return stack2.pop();
     }
 
     public static void main(String[] args) {
-        for(String str : Permutation("abc")){
-            System.out.println(str);
-        }
+        Solution s = new Solution();
+        s.push(1);
+        s.push(2);
+        s.push(3);
+        System.out.println(s.pop());
+        System.out.println(s.pop());
+        s.push(4);
+        System.out.println(s.pop());
+        s.push(5);
+        System.out.println(s.pop());
+        System.out.println(s.pop());
     }
 }
