@@ -20,48 +20,43 @@ public class M40_GetLeastNumbers {
     //法二：
     public static ArrayList<Integer> GetLeastNumbers_Solution2(int [] input, int k) {
         ArrayList<Integer> list = new ArrayList<>();
-        if(k <= 0 || k > input.length)
+        if(input == null || input.length < k || k <= 0){
             return list;
-        int temp = process(input,k);
-        for(int i = 0; i < k; i++){
+        }
+        int start = 0;
+        int end = input.length - 1;
+        int index = partition(input,start,end);
+        while(index+1 != k){
+            if(index+1 < k){
+                start = index + 1;
+                index = partition(input,start,end);
+            }else if(index+1 > k){
+                end = index - 1;
+                index = partition(input,start,end);
+            }
+        }
+        for(int i = 0 ; i < index + 1; i ++){
             list.add(input[i]);
         }
         return list;
     }
-    public static int process(int[] arr , int k){
-        int start = 0, end = arr.length - 1;
-        int temp = partition(arr,start,end);
-        while (true){
-            if(temp > k){
-                if (temp-1 < start)
-                    break;
-                temp = partition(arr,start,temp - 1);
-            }else if (temp < k){
-                if (temp + 1 > end)
-                    break;
-                temp = partition(arr,temp + 1,end);
-            }else {
-                return temp;
+    public static int partition(int[] arr, int start, int end){
+        int less = start;
+        int more = end;
+        int index = start;
+        while(less < more){
+            if(arr[index] < arr[end]){
+                swap(arr,index++,less++);
+            }else if(arr[index] > arr[end]){
+                swap(arr,index,--more);
+            }else{
+                index ++;
             }
         }
-        return -1;
+        swap(arr,end,more);
+        return less;    //返回第k大的索引
     }
 
-    public static int partition(int[] arr, int start, int end){
-        int less = start - 1;
-        int more = end;
-        while (start < more){
-            if(arr[start] > arr[end]){
-                swap(arr,start,--more);
-            }else if(arr[start] < arr[end]){
-                swap(arr,++less,start++);
-            }else{
-                start++;
-            }
-        }
-        swap(arr,start,end);
-        return start;   //返回当前第k大的数的索引
-    }
     public static void swap(int[] arr, int i, int j){
         int temp = arr[i];
         arr[i] = arr[j];

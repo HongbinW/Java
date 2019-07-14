@@ -27,7 +27,7 @@ public class M36_BSTToLinkedList {
                 pRootOfTree = pRootOfTree.left;
             }else{
                 pRootOfTree = stack.pop();
-                list.add(pRootOfTree);
+                list.add(pRootOfTree);      //如果不用list，则需要保存上一个节点，然后接上该节点，再处理下一个节点
                 pRootOfTree = pRootOfTree.right;
             }
         }

@@ -1,58 +1,29 @@
 package JZOffer;
-
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class Solution {
-    public static class TreeNode {
-        int val = 0;
-        TreeNode left = null;
-        TreeNode right = null;
-
-        public TreeNode(int val) {
-            this.val = val;
-
+    public String PrintMinNumber(int [] numbers) {
+        String[] strs = new String[numbers.length];
+        for (int i = 0 ; i < numbers.length; i ++){
+            strs[i] = String.valueOf(numbers[i]);
         }
-
-    }
-
-    ArrayList<ArrayList<Integer>> res = new ArrayList<>();
-    ArrayList<Integer> temp = new ArrayList<>();
-    public ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target) {
-        if(root == null){
-            return res;
+        Arrays.sort(strs,new MyComparator());
+        StringBuilder sb = new StringBuilder();
+        for(String i : strs){
+            sb.append(i);
         }
-        target -= root.val;
-        temp.add(root.val);
-        if(root.left == null && root.right == null && target == 0){
-            res.add(new ArrayList<>(temp));
-        }else{
-            FindPath(root.left,target);
-            FindPath(root.right,target);
-        }
-        temp.remove(temp.size()-1);
-        return res;
+        return sb.toString();
     }
 
     public static void main(String[] args) {
-        TreeNode node = new TreeNode(10);
-        node.left = new TreeNode(5);
-        node.right = new TreeNode(12);
-        node.left.left = new TreeNode(4);
-        node.left.right = new TreeNode(7);
-        new Solution().FindPath(node,22);
+        System.out.println(new Solution().PrintMinNumber(new int[]{3,5,1,4,2}));
     }
+}
 
-
-    public boolean hasPathSum(TreeNode root, int sum) {
-            if(root == null){
-                return false;
-            }
-            sum -= root.val;
-            if(root.left == null && root.right == null && sum == 0){
-                return true;
-            }else{
-                return hasPathSum(root.left,sum) || hasPathSum(root.right,sum);
-            }
-        }
+class MyComparator implements Comparator<String>{
+    @Override
+    public int compare(String o1, String o2) {
+        return (o1 + o2).compareTo(o2 + o1);
     }
 }
