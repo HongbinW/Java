@@ -16,6 +16,7 @@ public class TestInterface {
         System.out.println(AA.I);
 //        AA.I = 13;
 
+
     }
 }
 

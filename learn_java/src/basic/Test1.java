@@ -1,15 +1,26 @@
-public class Test
+package basic;
+
+import java.util.*;
+import java.util.function.Consumer;
+
+public class Test1
 {
-    public static Test t1 = new Test();
-    {
-        System.out.println("blockA");
+    public static void main(String[] args) {
+        int[] arr = new int[]{5,7,9,56,4,5,1,7,5,3,4};
+        LinkedList<Integer> list = new LinkedList<>();
+        list.push(2);
+        list.pop();
+
+        Stack<Integer> stack = new Stack<>();
+        stack.push(3);
+        stack.pop();
     }
-    static
-    {
-        System.out.println("blockB");
-    }
-    public static void main(String[] args)
-    {
-        Test t2 = new Test();
+
+}
+
+class MyComparator implements Comparator<Integer>{
+    @Override
+    public int compare(Integer o1, Integer o2) {
+        return o1 > o2 ? 1 : -1;
     }
 }

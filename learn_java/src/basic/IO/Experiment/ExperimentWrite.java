@@ -27,7 +27,7 @@ public class ExperimentWrite {
         BufferedWriter bw = null;
         try {
             FileWriter fw = null;
-            File file = new File("Test.txt");
+            File file = new File("Test1.txt");
             fw = new FileWriter(file);
             bw = new BufferedWriter(fw);
             String str = "Java是一种可以撰写跨平台应用软件的面向对象的程序设计语言，是由Sun Microsystems公司于" +
