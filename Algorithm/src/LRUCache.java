@@ -1,60 +1,83 @@
-import java.util.Stack;
+import java.util.HashMap;
 
-class LRUCache {
+class Node{
+    int key;
+    int value;
+    Node pre;
+    Node next;
 
-    /** initialize your data structure here. */
-    private Stack<Integer> data;
-    private Stack<Integer> min;
-    public LRUCache() {
-        data = new Stack<>();
-        min = new Stack<>();
-    }
-
-    public void push(int x) {
-        data.push(x);
-        if(min.peek() < x){
-            min.push(min.peek());
-        }else{
-            min.push(x);
-        }
-    }
-
-    public void pop() {
-        if(data.isEmpty()){
-            return;
-        }
-        min.pop();
-        data.pop();
-    }
-
-    public int top() {
-        if(data.isEmpty()){
-            throw new RuntimeException("The stack is Empty");
-        }
-        return data.peek();
-    }
-
-    public int getMin() {
-        return min.peek();
-    }
-
-    public static void main(String[] args) {
-        LRUCache minStack = new LRUCache();
-        minStack.push(-2);
-        minStack.push(0);
-        minStack.push(-3);
-        minStack.getMin();
-        minStack.pop();
-        minStack.top();
-        minStack.getMin();
+    public Node(int key, int value){
+        this.key = key;
+        this.value = value;
     }
 }
+public class LRUCache {
+    int capacity;
+    HashMap<Integer, Node> map = new HashMap<Integer, Node>();
+    Node head=null;
+    Node end=null;
 
-/**
- * Your MinStack object will be instantiated and called as such:
- * MinStack obj = new MinStack();
- * obj.push(x);
- * obj.pop();
- * int param_3 = obj.top();
- * int param_4 = obj.getMin();
- */
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public int get(int key) {
+        if(map.containsKey(key)){
+            Node n = map.get(key);
+            remove(n);
+            setHead(n);
+            return n.value;
+        }
+
+        return -1;
+    }
+
+    public void remove(Node n){
+        if(n.pre!=null){
+            n.pre.next = n.next;
+        }else{
+            head = n.next;
+        }
+
+        if(n.next!=null){
+            n.next.pre = n.pre;
+        }else{
+            end = n.pre;
+        }
+
+    }
+
+    public void setHead(Node n){
+        n.next = head;
+        n.pre = null;
+
+        if(head!=null)
+            head.pre = n;
+
+        head = n;
+
+        if(end ==null)
+            end = head;
+    }
+
+    public void set(int key, int value) {
+        if(map.containsKey(key)){
+            Node old = map.get(key);
+            old.value = value;
+            remove(old);
+            setHead(old);
+        }else{
+            Node created = new Node(key, value);
+            if(map.size()>=capacity){
+                map.remove(end.key);
+                remove(end);
+                setHead(created);
+
+            }else{
+                setHead(created);
+            }
+
+            map.put(key, created);
+        }
+    }
+}
