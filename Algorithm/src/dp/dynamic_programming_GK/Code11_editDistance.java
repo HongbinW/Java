@@ -40,7 +40,7 @@ public class Code11_editDistance {
         for(int i = 0; i < m+1 ; i++){
             dp[i][0] = i;
         }
-        //用0个字符去匹配j个字符，需要把去添加j个字符
+        //用0个字符去匹配j个字符，需要去添加j个字符
         for(int j = 0; j < n+1; j++){
             dp[0][j] = j;
         }
@@ -58,7 +58,7 @@ public class Code11_editDistance {
     }
 
     public static void main(String[] args) {
-        String word1 = "intention", word2 = "nation";
+        String word1 = "intention", word2 = "";
         System.out.println(minDistance(word1,word2));
     }
 }
