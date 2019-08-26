@@ -8,11 +8,11 @@ import set.FileOperation;
  * @Description:
  *  平衡二叉树：对于任意节点，左子树和右子树的高度差不能超过1
  *  平衡二叉树的高度和节点数量之间的关系是O（logn）
- *  节点的高度，对于叶子节点高度就是1，对于非叶子节点，高度为左右子树中高度最大的那个再加一
+        *  节点的高度，对于叶子节点高度就是1，对于非叶子节点，高度为左右子树中高度最大的那个再加一
  *  平衡因子：左右子树的高度差
  */
 
-public class AVLTree<K extends Comparable<K>, V> {
+    public class AVLTree<K extends Comparable<K>, V> {
 
     private class Node{
         public K key;

@@ -21,6 +21,7 @@ class Test {
                 c[p2++] = c2;
             }
         }
+
         return new String(c);
     }
 }
