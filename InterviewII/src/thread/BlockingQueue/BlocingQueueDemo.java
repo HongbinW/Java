@@ -1,7 +1,8 @@
-package thread;
+package thread.BlockingQueue;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.SynchronousQueue;
 
 /**
  * @Author: HongbinW
@@ -15,7 +16,7 @@ public class BlocingQueueDemo {
         blockingQueue.put("a");
         blockingQueue.put("a");
         blockingQueue.put("a");
-//        blockingQueue.put("x");
+        blockingQueue.put("x");
 
         blockingQueue.take();
         System.out.println(blockingQueue.peek());

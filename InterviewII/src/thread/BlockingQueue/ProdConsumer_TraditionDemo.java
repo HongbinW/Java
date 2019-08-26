@@ -1,4 +1,4 @@
-package thread;
+package thread.BlockingQueue;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -45,6 +45,7 @@ class ShareData{    //资源类
     private int number = 0;
     private Lock lock = new ReentrantLock();
     private Condition condition = lock.newCondition();
+
 
     public void increment() throws Exception{
         lock.lock();
