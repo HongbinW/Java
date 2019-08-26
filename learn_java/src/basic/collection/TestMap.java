@@ -153,8 +153,8 @@ public class TestMap {
             }
         };
         Map map = new TreeMap(com);
-        map.put(new Peroson("AA",123),89);
-        map.put(new Peroson("BB",13),99);
+        map.put(new Peroson("AA",1234),89);
+        map.put(new Peroson("AA",124),99);
         map.put(new Peroson("GG",13),29);
         map.put(new Peroson("EE",23),59);
         Set set1 = map.keySet();

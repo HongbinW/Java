@@ -40,7 +40,7 @@ public class Peroson implements Comparable {
         if (o == null || getClass() != o.getClass()) return false;
         Peroson peroson = (Peroson) o;
         return Objects.equals(name, peroson.name) &&
-                Objects.equals(age, peroson.age);
+            Objects.equals(age, peroson.age);
     }
 
     @Override
