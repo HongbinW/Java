@@ -26,6 +26,6 @@ public class Q1_commonAncester {
     }
 
     public static Node[] findCommonAncester(Query[] q){
-
+        return null;
     }
 }

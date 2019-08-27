@@ -17,7 +17,6 @@ public class Singleton4 {
     }
     public static Singleton4 intance;
     private String info;
-
     static{
         Properties pro = new Properties();
         try {
