@@ -1,50 +1,23 @@
-
-//给定一个链表: 1->2->3->4->5, 和 n = 2.
+///**
+// * 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。
+// * 如果没有任何一种硬币组合能组成总金额，返回 -1。
+// *
+// * 示例 1:
+// *
+// * 输入: coins = [1, 2, 5], amount = 11
+// * 输出: 3
+// * 解释: 11 = 5 + 5 + 1
+// * 示例 2:
+// *
+// * 输入: coins = [2], amount = 3
+// * 输出: -1
 //
-//当删除了倒数第二个节点后，链表变为 1->2->3->5.
-
-import java.util.*;
-
-class Solution {
-    static class TreeNode {
-      int val;
-      TreeNode left;
-      TreeNode right;
-      TreeNode(int x) { val = x; }
-    }
-
-    public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> res = new ArrayList<>();
-        if (root == null){
-            return res;
-        }
-        List<Integer> temp = new ArrayList<>();
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        int curTotal = 1;
-        int nextTotal = 0;
-        while (!queue.isEmpty()){
-            for (int i = 0 ; i < curTotal; i ++) {
-                root = queue.poll();
-                temp.add(root.val);
-                if (root.left != null) {
-                    queue.offer(root.left);
-                    nextTotal++;
-                }
-                if (root.right != null) {
-                    queue.offer(root.right);
-                    nextTotal++;
-                }
-            }
-            curTotal = nextTotal;
-            res.add(new ArrayList<>(temp));
-            temp = new ArrayList<>();
-            nextTotal = 0;
-        }
-        return res;
-    }
-
-    public static void main(String[] args) {
-
-    }
-}
+// */
+//class Solution {
+//    public int coinChange(int[] coins, int amount) {
+//        int[] dp = new int[amount + 1];
+//        for (int i = 1; i <= amount; i ++){
+//
+//        }
+//    }
+//}

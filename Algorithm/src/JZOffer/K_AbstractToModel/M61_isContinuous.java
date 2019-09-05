@@ -28,6 +28,30 @@ public class M61_isContinuous {
         return true;
     }
 
+    //不排序
+    public boolean isContinuous2(int [] numbers) {
+        int[] arr = new int[14];
+        for (int i = 0; i < numbers.length; i ++){
+            arr[numbers[i]] ++;
+        }
+        int count = 0;
+        boolean flag = false;
+        for (int i = 1; i < arr.length; i ++){
+            if (arr[i] != 0){
+                count ++;
+                flag = true;
+            }
+            else if (count < 5 && flag){
+                arr[0] --;
+                if (arr[0] < 0){
+                    return false;
+                }
+                count ++;
+            }
+        }
+        return count == 5;
+    }
+
     public static void main(String[] args) {
         System.out.println(new M61_isContinuous().isContinuous(new int[]{0,1,3,4,5}));
     }

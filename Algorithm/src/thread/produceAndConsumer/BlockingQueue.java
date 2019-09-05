@@ -2,6 +2,7 @@ package thread.produceAndConsumer;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @Author: HongbinW
@@ -26,13 +27,15 @@ public class BlockingQueue {
 }
 class MyResource{
     private int number;
+    AtomicInteger atomicInteger = new AtomicInteger(1);
     ArrayBlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<>(3);
 
     public void increase(){
+
         number ++;
         System.out.println(Thread.currentThread().getName() + "\t" + number);
         try {
-            blockingQueue.offer(number,2,TimeUnit.MILLISECONDS);
+            blockingQueue.offer(number,200,TimeUnit.MILLISECONDS);
             TimeUnit.MILLISECONDS.sleep(50);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -41,7 +44,7 @@ class MyResource{
 
     public void decrease(){
         try {
-            number = blockingQueue.poll(2,TimeUnit.MILLISECONDS);
+            number = blockingQueue.poll(200,TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

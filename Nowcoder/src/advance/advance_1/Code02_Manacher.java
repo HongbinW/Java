@@ -17,8 +17,8 @@ public class Code02_Manacher {
         }
         char[] charArr = manacherString(str);
         int[] pArr = new int[charArr.length];   //回文半径数组
-        int C = -1; //回文最右位置
-        int R = -1; //回文中心
+        int R = -1; //回文最右位置
+        int C = -1; //回文中心
         int max = Integer.MIN_VALUE;
         for(int i = 0; i < charArr.length; i++){
             // 当R > i时,当前位置的最大回文长度的瓶颈是
