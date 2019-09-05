@@ -6,7 +6,7 @@
 // * @Version 1.0
 // * @Description:
 // */
-//public class LeetCode236_lowestCommonAncestor {
+//public class LeetCode235_lowestCommonAncestorBST {
 //    class TreeNode {
 //      int val;
 //      TreeNode left;
