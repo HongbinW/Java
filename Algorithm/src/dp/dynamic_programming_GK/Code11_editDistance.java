@@ -36,6 +36,8 @@ public class Code11_editDistance {
     public static int minDistance(String word1, String word2) {
         int m = word1.length(), n=word2.length();
         int[][] dp = new int[m+1][n+1];     //单词的范围是0-m，所以是m+1
+
+        //i表示当前字符串匹配到的位置，j表示要去匹配的字符串的位置
         //要去匹配0个字符，把当前字符全删掉
         for(int i = 0; i < m+1 ; i++){
             dp[i][0] = i;
