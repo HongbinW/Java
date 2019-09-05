@@ -19,4 +19,23 @@ public class LeetCode238_productExceptSelf {
         }
         return arrL;
     }
+    //空间复杂度O(n)
+    public int[] productExceptSelf2(int[] nums) {
+        int length = nums.length;
+        int [] result = new int[length];
+
+        int temp = 1;   //相当于每次用temp记录前一个表格中的记录
+        for (int i = 0;i < length;i++) {
+            result[i] = temp;
+            temp *= nums[i];
+        }
+
+        temp = 1;
+        for (int i = length -1 ; i >= 0;i--) {
+            result[i] *= temp;
+            temp *= nums[i];
+        }
+        return result;
+    }
+
 }

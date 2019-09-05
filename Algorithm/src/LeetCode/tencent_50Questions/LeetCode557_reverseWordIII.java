@@ -2,27 +2,27 @@ package LeetCode.tencent_50Questions;
 
 public class LeetCode557_reverseWordIII {
     public static String reverseWords(String s) {
-        String[] strs = s.split(" ");
-        String res = "";
-        for(int i = 0; i < strs.length; i++){
-            res += reverseProcess(strs[i]);
-            if(i != strs.length-1){
-                res += " ";
+        char[] chars = s.toCharArray();
+        int startIndex = 0;
+        while (startIndex < s.length()){
+            int endIndex = s.indexOf(' ', startIndex + 1);
+            if(endIndex == -1){
+                endIndex = s.length();
             }
+            reverse(startIndex, endIndex, chars);
+            startIndex = endIndex + 1;
         }
-        return res;
+        return String.valueOf(chars);
+
     }
-    public static String reverseProcess(String str){
-        char[] chs = str.toCharArray();
-        for (int i = 0; i < chs.length/2; i++){
-            swap(chs,i,chs.length-1-i);
+
+    private static void reverse(int startIndex, int endIndex, char[] chars) {
+        for(int i = startIndex, k= endIndex-1; i < k; i++, k--){
+            char temp = chars[i];
+            chars[i] = chars[k];
+            chars[k] = temp;
         }
-        return new String(chs);
-    }
-    public static void swap(char[] chs, int i, int j){
-        char temp = chs[i];
-        chs[i] = chs[j];
-        chs[j] = temp;
+
     }
 
     public static void main(String[] args) {
