@@ -1,24 +1,52 @@
-import java.util.*;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.atomic.AtomicInteger;
+//生产者消费者
 
-/**
- * @Author: HongbinW
- * @Date: 2019/8/19 20:24
- * @Version 1.0
- * @Description:
- */
-public class Test {
-    public static void main(String[] args) {
-        int[] arr = new int[10];
-        for (int i = 1; i < 10; i ++){
-            arr[i] = i;
+//法一：synchronized wait notify
+
+class SharedResource{
+    private volatile int number = 0;
+
+    public void increase(){
+        synchronized (this) {
+            while (number != 0) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            number++;
+            System.out.println(Thread.currentThread().getName() + "\t" + number);
+            notify();
         }
-        arr[0] = 3;
-        int res = 0;
-        
+    }
+
+    public void decrease() {
+        synchronized (this) {
+            while (number == 0) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            number--;
+            System.out.println(Thread.currentThread().getName() + "\t" + number);
+            notify();
+        }
     }
 }
 
-
+class Test{
+    public static void main(String[] args) {
+        SharedResource sharedResource = new SharedResource();
+        new Thread(()->{
+            for (int i = 0 ; i < 10; i ++) {
+                sharedResource.increase();
+            }
+        },"AA").start();
+        new Thread(()->{
+            for(int i = 0 ; i < 10; i ++)
+                sharedResource.decrease();
+        },"BB").start();
+    }
+}
