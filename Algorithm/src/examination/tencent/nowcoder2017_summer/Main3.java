@@ -20,6 +20,7 @@ public class Main3 {
         int minDiff = Integer.MAX_VALUE;
         int minCount = 1;
         int resMinCount = 0;
+        boolean flag = true;
         Arrays.sort(arr);
         HashMap<Integer,Integer> map = new HashMap<>();
         for (int i = 0; i < arr.length; i ++){
@@ -27,21 +28,30 @@ public class Main3 {
                 map.put(arr[i],1);
             }else{
                 map.put(arr[i],map.get(arr[i]) + 1);
+                flag = false;
             }
-            if (i > 0){
+            if (flag && i > 0){
                 int temp = arr[i] - arr[i-1];
-                if (temp != 0){
                     if (temp < minDiff){
                         minDiff = temp;
                         resMinCount = Math.max(resMinCount,minCount);
-                        minCount = map.get(arr[i]) * map.get(arr[i-1]);
+                        minCount = 1;
                     }else if (temp == minDiff){
-                        minCount += map.get(arr[i]) * map.get(arr[i-1]);
+                        minCount ++;
                     }
-                }
             }
         }
-        resMinCount = Math.max(resMinCount,minCount);
+        if (!flag){
+            resMinCount = 0;
+            for (int i : map.keySet()){
+                int temp = map.get(i);
+                if (temp > 1){
+                    resMinCount += temp * (temp - 1) / 2;
+                }
+            }
+        }else {
+            resMinCount = Math.max(resMinCount, minCount);
+        }
         int left = 0;
         int index = 0;
         while (index < arr.length && arr[index] == arr[0]){
