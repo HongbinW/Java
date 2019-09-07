@@ -49,7 +49,7 @@ public class LeetCode4_findMedianSortedArrays {
                 int[] temp = A; A = B; B = temp;
                 int tmp = m; m = n; n = tmp;
             }
-            int iMin = 0, iMax = m, halfLen = (m + n + 1) / 2;
+            int iMin = 0, iMax = m, halfLen = (m + n + 1) / 2;      //以i,j划分，i-1为左，i为右
             while (iMin <= iMax) {
                 int i = (iMin + iMax) / 2;
                 int j = halfLen - i;
