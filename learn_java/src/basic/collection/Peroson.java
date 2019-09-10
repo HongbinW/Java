@@ -49,13 +49,13 @@ public class Peroson implements Comparable {
         return Objects.hash(name, age);
     }
 
-    @Override
-    public String toString() {
-        return "Peroson{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Peroson{" +
+//                "name='" + name + '\'' +
+//                ", age=" + age +
+//                '}';
+//    }
     //当向TreeSet中添加Person类的对象时，依据此方法确定按照哪个属性排列
     @Override
     public int compareTo(Object o) {

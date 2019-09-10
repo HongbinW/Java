@@ -45,10 +45,13 @@ public class TestSet {
                                                          //此处还需要重写HashCode
         System.out.println(p1.hashCode());
         System.out.println(p2.hashCode());  //哈希值不一样
-        set.add(p1);
-        set.add(p2);
-        System.out.println(set.size());
-        System.out.println(set);    //无序的,无序不表示随机
+        System.out.println(p1);
+        System.out.println(p2);
+        System.out.println(p1 == p2);
+//        set.add(p1);
+//        set.add(p2);
+//        System.out.println(set.size());
+//        System.out.println(set);    //无序的,无序不表示随机
 
 
     }
