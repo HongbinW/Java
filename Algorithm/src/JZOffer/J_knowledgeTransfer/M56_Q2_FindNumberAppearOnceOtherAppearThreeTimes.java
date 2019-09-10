@@ -26,6 +26,6 @@ public class M56_Q2_FindNumberAppearOnceOtherAppearThreeTimes {
     }
 
     public static void main(String[] args) {
-        System.out.println(new M56_Q2_FindNumberAppearOnceOtherAppearThreeTimes().findNumber(new int[]{1,2,2,2,4,4,4,1,1,3,5,5,5}));
+        System.out.println(new M56_Q2_FindNumberAppearOnceOtherAppearThreeTimes().findNumber(new int[]{-2,-2,1,1,-3,1,-3,-3,-4,-2}));
     }
 }

@@ -53,6 +53,6 @@ public class M49_GetUglyNumber {
 
     public static void main(String[] args) {
 //        System.out.println(GetUglyNumber_Solution(1500));
-        System.out.println(GetUglyNumber(1500));
+        System.out.println(GetUglyNumber(1));
     }
 }
