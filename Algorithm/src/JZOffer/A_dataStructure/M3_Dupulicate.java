@@ -28,6 +28,21 @@ public class M3_Dupulicate {
             return list;
         }
     }
+
+    public int findDuplicate(int[] nums) {
+        int slow = 0;
+        int fast = 0;
+        do{
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        }while(slow != fast);
+        fast = 0;
+        while(slow != fast){    //找环入口，因为肯定是因为有相同的，才会成环
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
+    }
     public static void main(String[] args) {
         int[] arr = new int[]{2,3,5,4,3,2,6,7};
         System.out.println(new M3_Dupulicate().new Q2().duplicate(arr));

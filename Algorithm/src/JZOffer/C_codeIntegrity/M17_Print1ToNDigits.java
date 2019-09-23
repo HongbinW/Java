@@ -54,7 +54,7 @@ public class M17_Print1ToNDigits {
         for (int i = 0; i < number.length; i++) {
             number[i] = '0';
         }
-        for (int i = 0; i < 10; ++i) {
+        for (int i = 0; i < 10; ++i) {      //最高位0~9
             number[0] = (char) (i + '0');
             printToMaxOfNDigitsRecursively(number, n, 0);
         }
@@ -65,7 +65,7 @@ public class M17_Print1ToNDigits {
             printNumber(number);
             return;
         }
-        for (int i = 0; i < 10; ++i) {
+        for (int i = 0; i < 10; ++i) {      //从最低位到第二高位，顺序加1，递归顺序为从第二高位到最低位
             number[index + 1] = (char) (i + '0');
             printToMaxOfNDigitsRecursively(number, n, index + 1);
         }
@@ -89,11 +89,11 @@ public class M17_Print1ToNDigits {
     public static void main(String[] args) {
         M17_Print1ToNDigits test = new M17_Print1ToNDigits();
         long start1 = System.currentTimeMillis();
-        test.Print1ToNDigits(8);
+        test.Print1ToNDigits(2);
         long end1 = System.currentTimeMillis();
 
         long start2 = System.currentTimeMillis();
-        test.printToMaxOfDigits(8);
+        test.printToMaxOfDigits(3);
         long end2 = System.currentTimeMillis();
 
         System.out.println("my solution" + (end1 - start1));
