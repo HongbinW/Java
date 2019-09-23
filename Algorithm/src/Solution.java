@@ -1,45 +1,33 @@
-import java.util.*;
-
-public class Solution{
-    public static String solution(char[] result){
-        LinkedList<Character> linkedList = new LinkedList<>();
-        //假设的初始序列
-        for (int i = 0; i < result.length; i ++){
-            linkedList.addLast(result[i]);
+class Solution {
+    public static String multiply(String num1, String num2) {
+        if (num1.equals("0") || num2.equals("0")){
+            return "0";
         }
-        //按题目要求排序后的结果
-        ArrayList<Character> list = process(linkedList);
-
-        //题目所给顺序对应坐标
-        StringBuilder s = new StringBuilder();
-        for (int i = 0; i < result.length; i ++){
-            s.append(result[i] - 'a' + 1);
+        int c = 0;
+        byte[] chs = new byte[num1.length()+num2.length()+1];
+        for(int i = num2.length() - 1; i >= 0; i --){
+            int index = num2.length() - i - 1;
+            for(int j = num1.length() - 1; j >= 0; j --){
+                int temp = chs[index] + (num1.charAt(j) - '0') * (num2.charAt(i) - '0') + c;
+                chs[index++] = (byte)(temp % 10);
+                c = temp / 10;
+            }
+            if (c != 0){
+                chs[index++] = (byte)c;
+                c = 0;
+            }
         }
-
-        //结果集中，以最开始假设的编号为key，以字符为value
-        TreeMap<Integer,Character> map = new TreeMap<>();
-        for (int i = 0; i < result.length; i ++){
-            map.put(s.charAt(i) - '0',list.get(i));
+        StringBuilder sb = new StringBuilder();
+        for (int i = chs.length-1; i >= 0; i --){
+            if (sb.length() == 0 && chs[i] == 0){
+                continue;
+            }
+            sb.append(chs[i]);
         }
-
-        StringBuilder oriOrder = new StringBuilder();
-        for (int i : map.keySet()){
-            oriOrder.append(map.get(i));
-        }
-        return oriOrder.toString();
-    }
-    public static ArrayList<Character> process(LinkedList<Character> list){
-        ArrayList<Character> res = new ArrayList<>();
-        while (!list.isEmpty()){
-            res.add(list.pollFirst());
-            if (!list.isEmpty())
-                list.addLast(list.pollFirst());
-        }
-        return res;
+        return sb.toString();
     }
 
     public static void main(String[] args) {
-        System.out.println(solution("acegikmbfjdlh".toCharArray()));
+        System.out.println(multiply("123", "45"));
     }
-
 }
