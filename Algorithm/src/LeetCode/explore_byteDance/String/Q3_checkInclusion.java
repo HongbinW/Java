@@ -15,6 +15,7 @@ public class Q3_checkInclusion {
             return false;
         }
         int[] diff = new int[26];
+        //初始化窗口
         for (int i = 0;i < s1.length(); i ++){
             //第一遍，s1的+，s2的-
             diff[s1.charAt(i) - 'a'] ++;
