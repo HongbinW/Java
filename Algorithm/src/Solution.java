@@ -47,9 +47,11 @@ class Solution {
         for (int i = 1; i < help.length - 1; i ++){
             dp[i][i] = help[i-1] * help[i] * help[i+1];
         }
-        for (int i = 1; i < help.length - 2; i ++){
-            for (int r = 1 ; r + i < help.length - 1; r ++){
-                dp[r][r+i] = Math.max(dp[r][r+i-1],dp[r+1][r+i]) ;
+        for (int i = help.length - 2; i >= 1; i --){
+            for (int j = i + 1; j < help.length - 1; j ++){
+                for (int k = i; k <= j; k ++){
+                    dp[i][j] = Math.max(help[i-1]*help[k]*help[j+1] + dp[i][k-1] + dp[k+1][j],dp[k][j]);
+                }
             }
         }
         return dp[1][help.length-2];
