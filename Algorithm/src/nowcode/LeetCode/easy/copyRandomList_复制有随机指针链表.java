@@ -1,4 +1,4 @@
-package nowcode.LeetCode;
+package nowcode.LeetCode.easy;
 
 public class copyRandomList_复制有随机指针链表 {
     static class RandomListNode {

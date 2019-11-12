@@ -1,4 +1,4 @@
-package nowcode.LeetCode;
+package nowcode.LeetCode.easy;
 
 public class singleNumber_一个出现一次其余两次 {
     public int singleNumber(int[] A) {

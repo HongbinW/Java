@@ -1,4 +1,4 @@
-package nowcode.LeetCode;
+package nowcode.LeetCode.easy;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -1,4 +1,4 @@
-package nowcode.LeetCode;
+package nowcode.LeetCode.easy;
 // https://www.nowcoder.com/practice/152bc6c5b14149e49bf5d8c46f53152b?tpId=46&tqId=29034&rp=1&ru=/ta/leetcode&qru=/ta/leetcode/question-ranking
 public class insertionSortList_插排对链表排序 {
     static class ListNode {

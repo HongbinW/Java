@@ -1,4 +1,4 @@
-package nowcode.LeetCode;
+package nowcode.LeetCode.easy;
 
 import java.util.ArrayList;
 import java.util.Stack;

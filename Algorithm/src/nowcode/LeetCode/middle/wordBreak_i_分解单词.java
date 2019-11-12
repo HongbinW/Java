@@ -1,4 +1,4 @@
-package nowcode.LeetCode;
+package nowcode.LeetCode.middle;
 
 import java.util.Set;
 

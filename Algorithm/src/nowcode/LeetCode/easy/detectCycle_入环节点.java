@@ -1,4 +1,4 @@
-package nowcode.LeetCode;
+package nowcode.LeetCode.easy;
 
 public class detectCycle_入环节点 {
     static class ListNode {

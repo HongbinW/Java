@@ -1,4 +1,4 @@
-package nowcode.LeetCode;
+package nowcode.LeetCode.easy;
 //https://www.nowcoder.com/practice/d75c232a0405427098a8d1627930bea6?tpId=46&tqId=29033&rp=1&ru=/ta/leetcode&qru=/ta/leetcode/question-ranking
 public class sortList_NlogN {
     static class ListNode {

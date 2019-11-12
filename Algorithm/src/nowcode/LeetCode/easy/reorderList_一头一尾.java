@@ -1,4 +1,4 @@
-package nowcode.LeetCode;
+package nowcode.LeetCode.easy;
 
 public class reorderList_一头一尾 {
     static class ListNode {
