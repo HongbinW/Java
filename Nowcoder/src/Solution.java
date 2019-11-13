@@ -1,22 +1,38 @@
-public class Solution{
-    public static void main(String[] args) {
-        System.out.println(maxSum(new  int[]{-2,1,-3,4,-1,2,1,-5,4}));
-    }
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
-    public static int maxSum(int[] arr){
-        if (arr == null || arr.length == 0){
-            return 0;
-        }
-        int max = arr[0];
-        int res = max;
-        for (int i = 1; i < arr.length; i ++){
-            if (max + arr[i] >= arr[i]){
-                max += arr[i];
-            }else{
-                max = arr[i];
+class Solution {
+    public int maxEnvelopes(int[][] envelopes) {
+        Arrays.sort(envelopes, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] envelope1, int[] envelope2) {
+                return envelope1[0] == envelope2[0] ? envelope2[1] - envelope1[1] : envelope1[0] - envelope2[0];
             }
-            res = Math.max(res,max);
+        });
+        int n = envelopes.length;
+        int[] top = new int[n];
+        int piles = 0;
+        int left, right, mid;
+
+        for (int i = 0; i < n; i++){
+            // 找寻poker的左边界
+            left = 0;
+            right = piles;
+
+            while (left < right){
+                mid = (left + right) / 2;
+                if (top[mid] >= envelopes[i][1]){
+                    right = mid;
+                }
+                else {
+                    left = mid + 1;
+                }
+            }
+            if (left == piles)  piles++;
+            top[left] = envelopes[i][1];
         }
-        return res;
+
+        return piles;
     }
 }
