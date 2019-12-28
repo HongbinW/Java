@@ -26,6 +26,4 @@ public class M55_Q1_TreeDepth {
         }
         return Math.max(process(node.left,depth+1),process(node.right,depth+1));
     }
-
-
 }
