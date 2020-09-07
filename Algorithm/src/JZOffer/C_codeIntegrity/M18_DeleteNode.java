@@ -61,37 +61,29 @@ public class M18_DeleteNode {
 //    }
 
     //Q2
-public ListNode deleteDuplication(ListNode pHead)
-{
-    ListNode preNode = null;
-    ListNode curNode = pHead;
-    ListNode nextNode = curNode.next;
-    while(nextNode != null){
-//        nextNode = curNode.next;
-        if(curNode.value == nextNode.value){
-            int num = curNode.value;
-            while(nextNode.value == num){       //直到找到下一个不重复的元素
-                nextNode = nextNode.next;
-                if(nextNode == null){
-                    return null;
-                }
-            }
-            if(curNode == pHead){           //如果当前节点指的依然是头结点，则更新头结点
-                pHead = nextNode;
-                curNode = nextNode;
-            }else{
-                curNode = nextNode;
-                preNode.next = curNode;
-            }
-            nextNode = nextNode.next;
-        }else{
-            preNode = curNode;
-            curNode = nextNode;
-            nextNode = curNode.next;
+    public static ListNode deleteDuplication(ListNode pHead) {
+        if (pHead == null){
+            return null;
         }
+        ListNode resNode = new ListNode(pHead.value-1);
+        resNode.next = pHead;
+        ListNode pre = resNode;
+        ListNode cur = pHead;
+        while(cur != null && cur.next != null){
+            if(cur.value == cur.next.value){
+                cur = cur.next;
+                if(cur.next == null || cur.value != cur.next.value){
+                    pre.next = cur.next;
+                    cur = cur.next;
+                }
+            }else{
+                pre = pre.next;
+                cur = cur.next;
+            }
+        }
+        return resNode.next;
     }
-    return pHead;
-}
+
 
 
     public static void main(String[] args) {

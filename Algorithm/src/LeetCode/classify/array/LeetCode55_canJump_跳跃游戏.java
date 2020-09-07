@@ -31,7 +31,7 @@ public class LeetCode55_canJump_跳跃游戏 {
         return t[0];
     }
     // 100% 94%
-    public boolean canJump2(int[] nums){
+    public static boolean canJump2(int[] nums){
         int lastPostion = nums.length-1;
         for (int i = nums.length - 2; i >= 0; i --){
             if (nums[i] + i > lastPostion){
@@ -39,5 +39,9 @@ public class LeetCode55_canJump_跳跃游戏 {
             }
         }
         return lastPostion == 0;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(canJump2(new int[]{3,2,1,0,0,0,0,0,4}));
     }
 }

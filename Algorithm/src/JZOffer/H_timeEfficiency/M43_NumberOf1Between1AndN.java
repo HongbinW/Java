@@ -34,28 +34,10 @@ public class M43_NumberOf1Between1AndN {
     前位数（100）。
      */
     public static int NumberOf1Between1AndN_Solution2(int n) {
-        int res = 0;
-        int cur = 0, before = 0, after = 0;
-        int i = 1;
-        while(i<=n){
-            before = n/(i*10);  //高位
-            cur = (n/i)%10;     //当前位
-            after = n - n/i*i;  //低位
-            if(cur == 0){
-                // 如果为0,出现1的次数由高位决定,等于高位数字 * 当前位数
-                res += before * i;
-            }else if(cur == 1){
-                // 如果为1, 出现1的次数由高位和低位决定,高位*当前位+低位+1
-                res += before * i + after + 1;
-            }else{
-                // 如果大于1, 出现1的次数由高位决定,（高位数字+1）* 当前位数
-                res += (before + 1) * i;
-            }
-            i *= 10;
-        }
-        return res;
+       //Q43_countDigitOne_1_n出现1的次数
+        return -1;
     }
     public static void main(String[] args) {
-        System.out.println(NumberOf1Between1AndN_Solution(10000));
+        System.out.println(NumberOf1Between1AndN_Solution2(11));
     }
 }

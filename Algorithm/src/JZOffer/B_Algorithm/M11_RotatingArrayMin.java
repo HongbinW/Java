@@ -60,7 +60,7 @@ public class M11_RotatingArrayMin {
     }
 
     public static void main(String[] args) {
-        int[] arr = {5,1,2};
+        int[] arr = {1,1,1,1,1,2,1,1,1};
         System.out.println(RotatingArrayMin(arr));
         System.out.println(method2(arr));
     }

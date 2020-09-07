@@ -10,6 +10,8 @@ package basic.multithreading;
  */
 //1.创建一个实现了Runnable接口的一个类
 class PrintNum implements Runnable{
+    //  new:如果int i = 0;则多个线程操作这一个i
+//    int i = 0;
     //2.实现接口的抽象方法
     public void run(){
         for(int i = 0; i <= 100; i++){

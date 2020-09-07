@@ -11,6 +11,13 @@ import java.util.Scanner;
  * Date 2019/11/3
  */
 //要求给出1-n个棋子在一个格子里的最少移动次数
+    /*
+    思路：可能的位置只有(a1,b1)(a1,b2)(a1,b3)(a1,b4)
+                        (a2,b2)(a2,b2)(a3,b2)(a4,b2)
+                        ...
+                        ...
+          因此每个位置做一个小根堆，存放的是每个实际点到该点的曼哈顿距离，需要多少个棋子就pop几次，然后求最小值。
+     */
 public class Q2_minStepsMove_棋子移动最少次数 {
     public void minStepsMove(){
         Scanner sc = new Scanner(System.in);

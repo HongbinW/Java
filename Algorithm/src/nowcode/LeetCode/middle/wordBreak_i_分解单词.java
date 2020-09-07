@@ -7,7 +7,7 @@ public class wordBreak_i_分解单词 {
         if (s == null || s.length() == 0 || dict == null || dict.size() == 0){
             return false;
         }
-        boolean[] flag = new boolean[s.length() + 1];   // 到第i个字符能成功匹配(]
+        boolean[] flag = new boolean[s.length() + 1];   // 到第i个字符能成功匹配[)
         flag[0] = true;
         for (int i = 1; i <= s.length(); i ++){
             for (int j = i - 1; j >= 0; j --){

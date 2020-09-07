@@ -32,7 +32,7 @@ public class LeetCode45_jumpII_跳跃游戏 {
         for (int i = 0; i < nums.length - 1; i ++){ //最后一个不用跳了
             maxPosition = Math.max(maxPosition,i + nums[i]);
             if (i == end){              //即使实际跳的不是end，那也是在end和preEnd之间的，所以需要+1次，而MaxPostion是实时更新的
-                end = maxPosition;
+                end = maxPosition;      //每次跳到end时，能跳到的最远距离
                 steps ++;
             }
         }

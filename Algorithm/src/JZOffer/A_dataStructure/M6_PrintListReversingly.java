@@ -1,4 +1,7 @@
 package JZOffer.A_dataStructure;
+
+import java.util.ArrayList;
+
 class ListNode {
     int val;
     ListNode next = null;
@@ -19,39 +22,31 @@ class ListNode {
     }
 }
 public class M6_PrintListReversingly {
-    private class Q{
-        public void PrintListReversingly(ListNode head){
-            if(head == null){
-                return;
+    private class Q {
+        public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+            ArrayList<Integer> list = new ArrayList<>();
+            while(listNode != null){
+                list.add(listNode.val);
+                listNode = listNode.next;
             }
-            ListNode prev = null;
-            while(head.next != null){
-                ListNode pnext = head.next;
-                head.next = prev;
-                prev = head;
-                head = pnext;
-            }
-            head.next = prev;
-            while(head != null){
-                System.out.print(head.val + " -> ");
-                head = head.next;
-            }
-            System.out.println("NULL");
+            reverse(list);
+            return list;
         }
-        public void PrintListReversingly_DiGui(ListNode head){
-            if(head == null)
-                return;
-            else{
-                PrintListReversingly_DiGui(head.next);
-                System.out.print(head.val + " -> ");
+        public void reverse(ArrayList<Integer> list){
+            for(int i = 0; i < list.size()/2; i ++){
+                int temp = list.get(i);
+                list.set(i,list.get(list.size()-1-i));
+                list.set(list.size()-1-i,temp);
             }
         }
     }
 
+
+
     public static void main(String[] args) {
-        int[] nums = new int[]{1,2,3,4,5,6};
+        int[] nums = new int[]{67,0,24,58};
         ListNode node = new ListNode(nums);
 //        new M6_PrintListReversingly().new Q().PrintListReversingly(node);
-        new M6_PrintListReversingly().new Q().PrintListReversingly_DiGui(node);
+        new M6_PrintListReversingly().new Q().printListFromTailToHead(node);
     }
 }

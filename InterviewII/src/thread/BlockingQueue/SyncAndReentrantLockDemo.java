@@ -37,7 +37,7 @@ public class SyncAndReentrantLockDemo {
 class ShareResource{
     String flag = "AA";
     private Lock lock = new ReentrantLock();
-    private Condition c1 = lock.newCondition();
+    private Condition c                      1 = lock.newCondition();
     private Condition c2 = lock.newCondition();
     private Condition c3 = lock.newCondition();
 

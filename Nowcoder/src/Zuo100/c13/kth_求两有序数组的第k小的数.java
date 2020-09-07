@@ -33,7 +33,7 @@ public class kth_求两有序数组的第k小的数 {
 
     }
     public int midNum(int[] arr1, int start1, int end1, int[] arr2, int start2, int end2){
-        while (start1 < end1){
+            while (start1 < end1){
             int mid1 = (start1 + end1) / 2;
             int mid2 = (start2 + end2) / 2;
             int offset = (end1 - start1) & 1;

@@ -30,7 +30,7 @@ public class Code08_HeapSort {
         int left = index * 2 + 1;
         while (left < heapsize){
             int largest = left + 1 < heapsize && arr[left + 1] > arr[left] ? left + 1 : left;
-            largest = arr[largest] > arr[index] ? largest : index;
+            largest = arr[largest] > arr[index] ? largest : index;  //让最大的沉底（沉到数组末尾，刚好从小到大排序），因为堆所满足的特性是，父节点大于子节点，所以堆排序的方案是，让最大的沉底，然后找到当前最大的
             if(largest == index)
                 break;
             swap(arr, index, largest);
@@ -96,8 +96,8 @@ public class Code08_HeapSort {
 
     // for test
     public static void main(String[] args) {
-        int testTime = 500000;
-        int maxSize = 100;
+        int testTime = 2;
+        int maxSize = 10;
         int maxValue = 100;
         boolean succeed = true;
         for (int i = 0; i < testTime; i++) {
@@ -111,7 +111,6 @@ public class Code08_HeapSort {
             }
         }
         System.out.println(succeed ? "Nice!" : "Fucking fucked!");
-
         int[] arr = generateRandomArray(maxSize, maxValue);
         printArray(arr);
         heapSort(arr);

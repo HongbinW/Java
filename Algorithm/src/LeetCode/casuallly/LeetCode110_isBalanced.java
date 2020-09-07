@@ -26,6 +26,24 @@ public class LeetCode110_isBalanced {
         return Math.abs(left - right) > 1 ? -1 : Math.max(left,right)+1;
     }
 
+
+    public boolean isBalanced2(TreeNode root) {
+        process(root);
+        return flag;
+    }
+    boolean flag = true;
+    public int process(TreeNode root){
+        if (root == null || !flag){
+            return 0;
+        }
+        int left = process(root.left);
+        int right = process(root.right);
+        if (Math.abs(left-right) > 1){
+            flag = false;
+        }
+        return Math.max(left,right) + 1;
+    }
+
     public static void main(String[] args) {
         TreeNode node = new TreeNode(1);
         node.left = new TreeNode(2);

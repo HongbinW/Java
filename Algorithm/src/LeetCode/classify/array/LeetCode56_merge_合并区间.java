@@ -1,5 +1,6 @@
 package LeetCode.classify.array;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -58,6 +59,34 @@ public class LeetCode56_merge_合并区间 {
 
     public static void main(String[] args) {
         new LeetCode56_merge_合并区间().merge(new int[][]{{1,3},{2,6},{8,10},{15,18}});
+    }
+
+    public static int[][] merge2(int[][] intervals) {
+        if (intervals == null || intervals.length < 2){
+            return intervals;
+        }
+        Arrays.sort(intervals,(o1,o2)->o1[0] - o2[0]);
+        ArrayList<Integer> list = new ArrayList<>();
+        int cur = 0;
+        while (cur < intervals.length){
+            list.add(intervals[cur][0]);
+            int end = intervals[cur][1];
+            int next = cur + 1;
+            while (next < intervals.length && intervals[next][0] <= end){   //找能合并到的最大的结尾
+                end = intervals[next][1] > end ? intervals[next][1] : end;  //可能cur范围包含next范围
+                next ++;
+            }
+            list.add(end);      //end已经选好了
+            cur = next;
+        }
+        int[][] res = new int[list.size()/2][2];
+        cur = 0;
+        int index = 0;
+        while (cur < list.size()){
+            res[index][0] = list.get(cur++);
+            res[index++][1] = list.get(cur++);
+        }
+        return res;
     }
 }
 class MyComparator implements Comparator<int[]>{

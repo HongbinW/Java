@@ -17,7 +17,7 @@ public class Q1_maxRect_最大矩形区域 {
             while (!stack.isEmpty() && arr[i] <= arr[stack.peek()]){
                 int j = stack.pop();    // 一定要先pop再peek，否则可能出现不了empty
                 int k = stack.isEmpty() ? -1 : stack.peek();
-                int curArea = (i - k - 1) * arr[j];
+                int curArea = (i - k - 1) * arr[j]; //两头都是小的，因此要全剪掉
                 res = Math.max(res, curArea);
             }
             stack.push(i);

@@ -23,7 +23,7 @@ public class Q3_01Array_equalNum {
             if (!map.containsKey(sum)){
                 map.put(sum,i);
             }else {
-                res = Math.max(res,i - map.get(sum));
+                res = Math.max(res,i - map.get(sum));       //有相等的，说明这段和为0
             }
         }
         return res;

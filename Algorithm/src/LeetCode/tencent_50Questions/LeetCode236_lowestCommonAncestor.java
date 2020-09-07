@@ -96,6 +96,20 @@ public class LeetCode236_lowestCommonAncestor {
         return false;
     }
 
+    public TreeNode lowestCommonAncestor3(TreeNode root, TreeNode p, TreeNode q) {
+        if(root == null || root == p || root == q) return root;     // 如果能找到p或者q会返回p或q，否则肯定会返回Null
+        TreeNode left = lowestCommonAncestor3(root.left, p ,q);
+        TreeNode right = lowestCommonAncestor3(root.right, p, q);
+        //if left == null 说明左边既不包含p也不包含q
+        //if right  == null , 说明右边也都不包含 return null
+        //if right = p or q  返回p or q
+        //同理 right == null
+        //如果左右都不为空， root就是祖先
+        if(left == null) return right;
+        if(right == null) return left;
+        return root;
+    }
+
     public static void main(String[] args) {
         TreeNode node = new TreeNode(6);
         node.left = new TreeNode(2);
@@ -109,4 +123,29 @@ public class LeetCode236_lowestCommonAncestor {
         System.out.println(new LeetCode236_lowestCommonAncestor().lowestCommonAncestor(node, node.left, node.left.right.right).val);
     }
 
+    // 优秀解
+
+    public TreeNode lowestCommonAncestor4(TreeNode root, TreeNode p, TreeNode q) {
+
+        if(root == p || root == null || root == q){
+            return root;
+        }
+
+        TreeNode A = lowestCommonAncestor4(root.left,p,q);
+        TreeNode B = lowestCommonAncestor4(root.right,p,q);
+
+        // 如果有一边为null，说明那一边p,q都没有，所以返回一边就行
+        if(A ==null){
+            return B;
+        }
+
+        if(B ==null){
+            return A;
+        }
+
+        if(A != null && B!= null){
+            return root;
+        }
+        return null;
+    }
 }

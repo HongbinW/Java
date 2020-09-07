@@ -1,6 +1,7 @@
 package LeetCode.casuallly;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 
 /**
@@ -35,20 +36,22 @@ public class LeetCode03 {
         return maxlen;
     }
     //滑动窗口
-    public static int lengthOfLongestSubstring2(String s) {
-        int res = 0;
-        int i = 0;
-        int j = 0;
-        HashSet set = new HashSet();
-        while(i < s.length() && j < s.length()){
-            if(!set.contains(s.charAt(j))){
-                set.add(s.charAt(j++));
-                res = Math.max(res,j-i);
-            }else{
-                set.remove(s.charAt(i++));  //直至移除到跟s.charAt(j)相同的字符为止
-            }
+    public static int lengthOfLongestSubstring3(String s) {
+        if (s == null || s.length() == 0){
+            return 0;
         }
-        return res;
+        int res = 0;
+        char[] chs = s.toCharArray();
+        HashMap<Character,Integer> map = new HashMap<>();
+        int left = 0;
+        int right = 0;
+        while (right < chs.length){
+            if (map.containsKey(chs[right])){
+                res = Math.max(res, right - left);
+                left = Math.max(left,map.get(chs[right]) + 1);
+            }
+            map.put(chs[right],right++);
+        }
+        return Math.max(res,right-left);
     }
-
 }

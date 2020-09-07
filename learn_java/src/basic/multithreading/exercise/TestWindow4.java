@@ -19,9 +19,9 @@ class Window4 extends Thread {
                     }
                     System.out.println(Thread.currentThread().getName() + "所售票号为：" + (ticket++));
                 }
-//                else {
-//                    break;
-//                }
+                else {
+                    break;
+                }
             }
         }
     }

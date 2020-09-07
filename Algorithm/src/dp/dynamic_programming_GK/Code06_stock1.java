@@ -24,7 +24,7 @@ package dp.dynamic_programming_GK;
  * 解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
  *
  */
-public class Code06_stock1 {
+public class  Code06_stock1 {
     public int maxProfit(int[] prices) {
         if(prices == null || prices.length < 2)
             return 0;

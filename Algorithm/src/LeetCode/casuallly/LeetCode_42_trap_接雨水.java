@@ -21,4 +21,25 @@ public class LeetCode_42_trap_接雨水 {
         }
         return res;
     }
+
+    public int trap2(int[] height) {
+        if (height == null || height.length < 3){
+            return 0;
+        }
+        int left = 0;
+        int right = height.length - 1;
+        int leftHeight = height[left];
+        int rightHeight = height[right];
+        int res = 0;
+        while (left <= right){
+            if (height[left] < height[right]){
+                leftHeight = Math.max(leftHeight,height[left]);
+                res += leftHeight - height[left++];
+            }else{
+                rightHeight = Math.max(rightHeight,height[right]);
+                res += rightHeight - height[right--];
+            }
+        }
+        return res;
+    }
 }

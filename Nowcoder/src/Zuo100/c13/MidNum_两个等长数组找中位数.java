@@ -6,7 +6,10 @@ package Zuo100.c13;
  * Date 2019/11/15
  */
 public class MidNum_两个等长数组找中位数 {
-    public int midNum(int[] arr1, int[] arr2){
+    public static void main(String[] args) {
+        System.out.println(midNum(new int[]{1,2,3,4},new int[]{5,6,7,8}));
+    }
+    public static int midNum(int[] arr1, int[] arr2){
         if (arr1 == null || arr1.length == 0 || arr2 == null || arr2.length == 0){
             return 0;
         }
