@@ -6,7 +6,7 @@ package easy;
  * Date 2019/1/28
  */
 
-import org.junit.Test;
+//import org.junit.Test;
 
 /**
  * 给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class maxProfit {
     //My Solution 3ms
-    @Test
+//    @Test
     public void test1(){
         int[] nums = new int[]{3,2,6,5,0,3};
         System.out.println(maxProfit1(nums));

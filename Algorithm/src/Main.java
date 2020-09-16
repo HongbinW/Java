@@ -21,35 +21,26 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Main{
     public static void main(String[] args) {
-        fun("1");
-
-        System.out.println();
-        System.out.println();
-        Node node = new Node(1);
-
-        process(node);
-        System.out.println(node.value);
+        process3(new int[]{1,2,3,4,5});
     }
-
-    public static int a = 1;
-    public static void fun(String str){
-        System.out.println("enter hashCode: " + str.hashCode());
-        if (a == 6){
-            return;
-        }
-        str += String.valueOf(a++);
-        fun(str);
-        System.out.println("exit hashCode: " + str.hashCode());
-        System.out.println(str);
-    }
-
-    static class Node{
-        int value;
-        Node(int valuee){
-            this.value = valuee;
+    public static void process2(){
+        for(int a = 0; a <= 8; a ++){
+            int b = 8 - a;
+            int c = 8 - b;
+            int d = 8 - c;
+            if (b >= 0 && b >= 0 && c >= 0 && d >= 0 && a + d == 8){
+                System.out.println(a * 1000 + b * 100 + c * 10 + d);
+            }
         }
     }
-    public static void process(Node node){
-        node.value ++;
+
+    public static void process3(int[] arr){
+        int[] dp = new int[arr.length];
+        dp[0] = arr[0] >= 0 ? arr[0] : 0;
+        dp[1] = Math.max(arr[1], dp[0]);
+        for (int i = 2; i < arr.length; i ++){
+            dp[i] = Math.max(dp[i-1], dp[i-2] + arr[i]);
+        }
+        System.out.println(dp[arr.length-1]);
     }
 }

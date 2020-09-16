@@ -6,7 +6,7 @@ package easy;
  * Date 2019/1/25
  */
 
-import org.junit.Test;
+//import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
  * 在杨辉三角中，每个数是它左上方和右上方的数的和。
  */
 public class generateYHSJ {
-    @Test
+//    @Test
     public void test1(){
         System.out.println(generate1(5));
     }

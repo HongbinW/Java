@@ -1,47 +1,39 @@
-import sun.reflect.generics.tree.Tree;
-
-import java.util.HashMap;
-import java.util.LinkedList;
+import javax.xml.bind.SchemaOutputResolver;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Stack;
 
 public class ttt{
-    static class TreeNode{
-        int value;
-        TreeNode left;
-        TreeNode right;
-        public TreeNode(int value){
-            this.value = value;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> list= new ArrayList<>();
+        while (sc.hasNextLine()){
+            String str = sc.nextLine();
+            System.out.println(str);
+            if (str.equals("")){
+                break;
+            }
+            list.add(str);
+        }
+        System.out.println(list.size());
+    }
+    public static void process(int[] arr, int start, int n){
+        if (start == n){
+            for (int i = 0; i < arr.length; i ++){
+                System.out.printf("%d ", arr[i]);
+            }
+            System.out.println();
+            return;
+        }
+        for(int i = start; i < n; i ++){
+            swap(arr,i, start);
+            process(arr,i+1, n);
+            swap(arr,i, start);
         }
     }
-    public static void main(String[] args){
-        TreeNode root = new TreeNode(4);
-        root.left = new TreeNode(2);
-        root.left.left = new TreeNode(1);
-        root.left.right = new TreeNode(3);
-        root.right = new TreeNode(7);
-        root.right.left = new TreeNode(6);
-        root.right.right = new TreeNode(9);
-        root = reverse(root);
-        System.out.println();
-    }
-
-    public static TreeNode reverse(TreeNode root){
-        if (root == null){
-            return root;
-        }
-        LinkedList<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()){
-            TreeNode node = queue.poll();
-            TreeNode tmp = node.left;
-            node.left = node.right;
-            node.right = tmp;
-            if (node.left != null){
-                queue.add(node.left);
-            }
-            if (node.right != null){
-                queue.add(node.right);
-            }
-        }
-        return root;
+    public static void swap(int[] arr, int i, int j){
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
     }
 }
